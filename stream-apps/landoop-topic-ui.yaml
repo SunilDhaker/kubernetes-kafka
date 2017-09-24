@@ -1,0 +1,22 @@
+
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: landdop-rest-ui
+  namespace : kafka
+spec:
+  replicas: 1 # tells deployment to run 2 pods matching the template
+  template: # create pods using pod definition in this template
+    metadata:
+      labels:
+        app: landdop-rest-ui
+    spec:
+      containers:
+      - name: landdop-rest-ui
+        image: landoop/kafka-topics-ui
+        env:
+        - name: SCHEMAREGISTRY_URL
+          value: "http://schemas"
+        ports:
+        - containerPort: 8000
+          name: landdop-rest-ui

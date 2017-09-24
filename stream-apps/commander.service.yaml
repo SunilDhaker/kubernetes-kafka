@@ -1,0 +1,13 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: commander
+  namespace : streams
+spec:
+  type: LoadBalancer
+  selector:
+    app: commander
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 2222

@@ -1,0 +1,15 @@
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: device-manager
+  namespace : streams
+spec:
+  replicas: 1 # tells deployment to run 2 pods matching the template
+  template: # create pods using pod definition in this template
+    metadata:
+      labels:
+        app: device-manager
+    spec:
+      containers:
+      - name: device-manager
+        image: gcr.io/fretron-server/device-manager:latest

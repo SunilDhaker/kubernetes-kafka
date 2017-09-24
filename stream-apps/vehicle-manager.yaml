@@ -1,0 +1,15 @@
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: vehicle-manager
+  namespace : streams
+spec:
+  replicas: 1 # tells deployment to run 2 pods matching the template
+  template: # create pods using pod definition in this template
+    metadata:
+      labels:
+        app: vehicle-manager
+    spec:
+      containers:
+      - name: vehicle-manager
+        image: gcr.io/fretron-server/vehicle-manager:latest

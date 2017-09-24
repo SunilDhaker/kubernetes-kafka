@@ -1,0 +1,22 @@
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: kafka-mirror-maker
+  namespace : kafka
+spec:
+  replicas: 1 # tells deployment to run 2 pods matching the template
+  template: # create pods using pod definition in this template
+    metadata:
+      labels:
+        app: kafka-mirror-maker
+    spec:
+      containers:
+      - name: kafka-manager
+        image: cgswong/mirrormaker
+        env:
+        - name: MM_CS_ZOOKEEPER_CONNECT
+          value: "zookeeper:2181"
+        - name: MM_PD_METADATA_BROKER_LIST
+          value: "kakfa-0:9092,kafak-1:9092"
+        - name: MM_WHITE_LIST
+          value: "commandresult,device,vehicle,customer,_schemas"

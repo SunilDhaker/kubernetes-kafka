@@ -1,0 +1,14 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: ccc
+  namespace : kafka
+spec:
+  type: NodePort
+  selector:
+    app: ccc
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 9021
+    nodePort : 30062

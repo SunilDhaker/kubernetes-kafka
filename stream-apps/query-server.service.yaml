@@ -1,0 +1,28 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: query-server
+  namespace : mean
+spec:
+  type: LoadBalancer
+  selector:
+    app: query-server
+  ports:
+  - protocol: TCP
+    name : web
+    port: 80
+  - protocol: TCP
+    name : proto1
+    port: 8094
+  - protocol: TCP
+    name : proto2
+    port: 8095
+  - protocol: TCP
+    name : proto4
+    port: 3000
+  - protocol: TCP
+    name : proto5
+    port: 3003
+  - protocol: TCP
+    name : proto6
+    port: 3004

@@ -1,0 +1,29 @@
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: traccar
+  namespace : streams
+spec:
+  replicas: 1 # tells deployment to run 2 pods matching the template
+  template: # create pods using pod definition in this template
+    metadata:
+      labels:
+        app: traccar
+    spec:
+      containers:
+      - name: traccar
+        image: gcr.io/fretron-server/tracker:latest2
+        ports:
+        - containerPort: 8082
+        - containerPort: 5021
+        - containerPort: 5022
+        - containerPort: 5023
+        - containerPort: 5024
+        - containerPort: 5025
+        - containerPort: 5026
+        - containerPort: 5027
+        - containerPort: 5028
+        - containerPort: 5029
+        - containerPort: 5030
+        - containerPort: 5031
+        - containerPort: 5032

@@ -1,0 +1,12 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: position-processor
+  namespace : streams
+spec:
+  type: LoadBalancer
+  selector:
+    app: position-processor
+  ports:
+  - protocol: TCP
+    port: 2121

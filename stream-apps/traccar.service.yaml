@@ -1,0 +1,49 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: traccar
+  namespace : streams
+spec:
+  type: LoadBalancer
+  selector:
+    app: traccar
+  ports:
+  - protocol: TCP
+    name : web
+    port: 8082
+  - protocol: TCP
+    name : proto1
+    port: 5021
+  - protocol: TCP
+    name : proto2
+    port: 5022
+  - protocol: TCP
+    name : proto3
+    port: 5023
+  - protocol: TCP
+    name : proto4
+    port: 5024
+  - protocol: TCP
+    name : proto5
+    port: 5025
+  - protocol: TCP
+    name : proto6
+    port: 5026
+  - protocol: TCP
+    name : proto7
+    port: 5027
+  - protocol: TCP
+    name : proto8
+    port: 5028
+  - protocol: TCP
+    name : proto9
+    port: 5029
+  - protocol: TCP
+    name : proto10
+    port: 5030
+  - protocol: TCP
+    name : proto11
+    port: 5031
+  - protocol: TCP
+    name : proto12
+    port: 5032

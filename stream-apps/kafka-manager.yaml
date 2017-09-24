@@ -1,0 +1,23 @@
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: kafka-manager
+  namespace : kafka
+spec:
+  replicas: 1 # tells deployment to run 2 pods matching the template
+  template: # create pods using pod definition in this template
+    metadata:
+      labels:
+        app: kafka-manager
+    spec:
+      containers:
+      - name: kafka-manager
+        image: sheepkiller/kafka-manager
+        env:
+        - name: ZK_HOSTS
+          value: "zookeeper:2181"
+        - name: APPLICATION_SECRET
+          value: "fretron"
+        ports:
+        - containerPort: 9000
+          name: client

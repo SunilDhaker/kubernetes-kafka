@@ -1,0 +1,18 @@
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: trip-manager
+  namespace : streams
+spec:
+  replicas: 1 # tells deployment to run 2 pods matching the template
+  template: # create pods using pod definition in this template
+    metadata:
+      labels:
+        app: trip-manager
+    spec:
+      containers:
+      - name: trip-manager
+        image: gcr.io/fretron-server/trip-manager:latest
+        ports:
+        - containerPort: 2123
+          name: trip-manager

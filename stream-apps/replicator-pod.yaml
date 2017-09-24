@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: replicator
+  namespace : streams
+spec:
+  containers:
+  - name: replicator
+    image: gcr.io/fretron-server/replicator2:latest  
+  hostAliases:
+    - ip: "35.198.214.129"
+      hostnames:
+      - "m2.global"
+    - ip: "35.198.202.193"
+      hostnames:
+      - "m1.global"

@@ -1,0 +1,23 @@
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: query-server
+  namespace : mean
+spec:
+  replicas: 1 # tells deployment to run 2 pods matching the template
+  template: # create pods using pod definition in this template
+    metadata:
+      labels:
+        app: query-server
+    spec:
+      containers:
+      - name: query-server
+        image: gcr.io/fretron-server/query-server:latest
+        command: ["sh" ,"-c" , "NODE_ENV=production node /app/app.js"]
+        ports:
+        - containerPort: 8094
+        - containerPort: 8095
+        - containerPort: 80
+        - containerPort: 3000
+        - containerPort: 3003
+        - containerPort: 3004

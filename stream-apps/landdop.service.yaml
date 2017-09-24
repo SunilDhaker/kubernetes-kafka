@@ -1,0 +1,15 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: landdop-rest-ui
+  namespace : kafka
+spec:
+  type: NodePort
+  selector:
+    app: landdop-rest-ui
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 8000
+    nodePort : 30066
+
