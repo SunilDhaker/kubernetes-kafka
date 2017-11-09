@@ -23,7 +23,10 @@ echo "Latest version tag: $VERSION"
 VNUM1=${VERSION_BITS[0]}
 VNUM2=${VERSION_BITS[1]}
 VNUM3=${VERSION_BITS[2]}
-# VNUM3=$((VNUM3+1))
+VNUM1=${VNUM1: -1}
+
+
+
 if [ -z "$VNUM1" ]; then
     VNUM1=0
     VNUM2=0
@@ -60,7 +63,7 @@ echo "Commit count: $GIT_COMMIT_COUNT"
 export BUILD_NUMBER=$GIT_COMMIT_COUNT
 
 #create new tag
-NEW_TAG="$VNUM1.$VNUM2.$VNUM3"
+NEW_TAG="v$VNUM1.$VNUM2.$VNUM3"
 
 echo "Updating $VERSION to $NEW_TAG"
 
