@@ -1,0 +1,26 @@
+# A headless service to create DNS records
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: broker
+  namespace: kafka
+spec:
+  ports:
+  - port: 9092
+  clusterIP: None
+  selector: {}
+---
+# Because this service has no selector, the corresponding Endpoints
+# object will not be created. You can manually map the service to
+# your own specific endpoints:
+kind: Endpoints
+apiVersion: v1
+metadata:
+  name: broker
+  namespace: kafka
+subsets:
+  - addresses:
+      - ip: "10.148.0.3"
+    ports:
+      - port: 9092

@@ -16,3 +16,4 @@ spec:
         ports:
         - containerPort: 2123
           name: trip-manager
+        

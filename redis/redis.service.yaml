@@ -4,8 +4,10 @@ metadata:
   name: redis
   namespace: mean
 spec:
+  type: LoadBalancer
   ports:
-  - port: 6379
-    targetPort: 6379
+  - protocol: TCP
+    name : web
+    port: 6379
   selector:
     application: redis

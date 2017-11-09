@@ -47,3 +47,6 @@ spec:
   - protocol: TCP
     name : proto12
     port: 5032
+  - protocol: TCP
+    name : redirect
+    port: 80

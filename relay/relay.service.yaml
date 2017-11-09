@@ -1,0 +1,17 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: relay
+  namespace : streams
+spec:
+  type: LoadBalancer
+  loadBalancerIP: 35.198.214.129
+  selector:
+    app: relay
+  ports:
+  - protocol: TCP
+    name : proto1
+    port: 55027
+  - protocol: TCP
+    name : proto2
+    port: 5023

@@ -26,8 +26,13 @@ spec:
         env:
         - name: KAFKA_LOG4J_OPTS
           value: -Dlog4j.configuration=file:/etc/kafka/log4j.properties
+        - name: JMX_PORT
+          value: "9001"
         ports:
         - containerPort: 9092
+          name: main
+        - containerPort: 9001
+          name: jmx
         command:
         - ./bin/kafka-server-start.sh
         - /etc/kafka/server.properties
@@ -39,6 +44,8 @@ spec:
         -   log.dirs=/var/lib/kafka/data/topics
         - --override
         -   auto.create.topics.enable=true
+        - --override
+        -   delete.topic.enable=true
         resources:
           requests:
             cpu: 100m

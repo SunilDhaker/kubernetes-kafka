@@ -1,0 +1,20 @@
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: relay
+  namespace : streams
+spec:
+  replicas: 1 # tells deployment to run 2 pods matching the template
+  template: # create pods using pod definition in this template
+    metadata:
+      labels:
+        app: relay
+    spec:
+      containers:
+      - name: relay
+        image: gcr.io/fretron-server/relay:latest
+        ports:
+        - containerPort: 55027
+          name: mmi
+        - containerPort: 5023
+          name: ccx

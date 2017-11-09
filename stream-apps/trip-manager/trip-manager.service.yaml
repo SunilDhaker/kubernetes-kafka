@@ -1,0 +1,14 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: trip-manager
+  namespace : streams
+spec:
+  type: NodePort
+  selector:
+    app: trip-manager
+  ports:
+  - protocol: TCP
+    targetPort: 2123
+    port: 2123
+    nodePort : 30066

@@ -1,0 +1,12 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: alert-manager
+  namespace : streams
+spec:
+  type: LoadBalancer
+  selector:
+    app: alert-manager
+  ports:
+  - protocol: TCP
+    port: 2124

@@ -2,11 +2,11 @@ apiVersion: v1
 kind: Pod
 metadata:
   name: replicator
-  namespace : streams
+  namespace : kafka
 spec:
   containers:
   - name: replicator
-    image: gcr.io/fretron-server/replicator2:latest  
+    image: gcr.io/fretron-server/replicator:latest  
   hostAliases:
     - ip: "35.198.214.129"
       hostnames:
