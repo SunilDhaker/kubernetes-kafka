@@ -1,0 +1,19 @@
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: nginx-gateway
+  labels: 
+      keel.sh/policy: force
+      keel.sh/approvals: "1"
+spec:
+  replicas: 1 # tells deployment to run 2 pods matching the template
+  template: # create pods using pod definition in this template
+    metadata:
+      labels:
+        app: nginx-gateway
+    spec:
+      containers:
+      - name: nginx-gateway
+        image: gcr.io/fretron-server/nginx-gateway:latest
+        ports:
+        - containerPort: 80

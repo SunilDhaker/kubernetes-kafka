@@ -19,12 +19,12 @@ spec:
         - image: karolisr/keel:0.5.0-rc.1
           imagePullPolicy: Always
           env:          
-            - name: POLL
-              value: "1"               
-            # - name: PUBSUB
-            #   value: "1"            
-            # - name: PROJECT_ID
-            #   value: "fretron-server"
+            # - name: POLL
+            #   value: "1"               
+            - name: PUBSUB
+              value: "1"            
+            - name: PROJECT_ID
+              value: "fretron-server"
             # Enable/disable Helm provider  
             # - name: HELM_PROVIDER
             #   value: "1" 

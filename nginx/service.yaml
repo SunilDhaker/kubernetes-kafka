@@ -1,0 +1,12 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: nginx-gateway
+spec:
+  type: LoadBalancer
+  selector:
+    app: nginx-gateway
+  ports:
+  - protocol: TCP
+    name : proto1
+    port: 80

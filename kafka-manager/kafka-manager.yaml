@@ -15,7 +15,7 @@ spec:
         image: sheepkiller/kafka-manager
         env:
         - name: ZK_HOSTS
-          value: "zookeeper:2181"
+          value: "10.148.0.5:2181,10.148.0.6:2181"
         - name: APPLICATION_SECRET
           value: "fretron"
         ports:

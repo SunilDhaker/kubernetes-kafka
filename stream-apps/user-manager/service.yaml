@@ -1,0 +1,13 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: user-manager
+  namespace : streams
+spec:
+  type: NodePort
+  selector:
+    app: user-manager
+  ports:
+  - protocol: TCP
+    name : proto1
+    port: 8099

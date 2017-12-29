@@ -1,0 +1,17 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: qs-beta
+  namespace : mean
+spec:
+  type: LoadBalancer
+  selector:
+    app: qs-beta
+  ports:
+  - protocol: TCP
+    name : proto1
+    port: 8094
+  - protocol: TCP
+    name : proto2
+    port: 80
+    targetPort: 8094

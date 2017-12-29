@@ -1,0 +1,13 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: tracker-manager
+  namespace : streams
+spec:
+  type: NodePort
+  selector:
+    app: tracker-manager
+  ports:
+  - protocol: TCP
+    targetPort: 2125
+    port: 2125

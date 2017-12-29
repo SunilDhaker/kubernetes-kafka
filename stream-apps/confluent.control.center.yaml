@@ -17,7 +17,7 @@ spec:
         - name: CONTROL_CENTER_ZOOKEEPER_CONNECT
           value: "zookeeper:2181"
         - name: CONTROL_CENTER_BOOTSTRAP_SERVERS
-          value: "kafka-0.broker.kafka.svc.cluster.local:9092"
+          value: "broker.kafka.svc.cluster.local:9092"
         - name: CONTROL_CENTER_REPLICATION_FACTOR
           value: "1"
         - name: CONTROL_CENTER_MONITORING_INTERCEPTOR_TOPIC_PARTITIONS

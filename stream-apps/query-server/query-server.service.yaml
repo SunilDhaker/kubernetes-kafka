@@ -5,7 +5,6 @@ metadata:
   namespace : mean
 spec:
   type: LoadBalancer
-  loadBalancerIP: 35.198.236.9
   selector:
     app: query-server
   ports:

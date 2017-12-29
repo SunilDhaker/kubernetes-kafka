@@ -22,6 +22,6 @@ metadata:
   namespace: kafka
 subsets:
   - addresses:
-      - ip: "10.148.0.3"
+      - ip: "10.148.0.5"
     ports:
       - port: 8081

@@ -1,0 +1,23 @@
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: user-manager
+  namespace : streams
+  labels: 
+      keel.sh/policy: force
+      keel.sh/approvals: "1"
+spec:
+  replicas: 1 # tells deployment to run 2 pods matching the template
+  template: # create pods using pod definition in this template
+    metadata:
+      labels:
+        app: user-manager
+    spec:
+      containers:
+      - name: user-manager
+        image: gcr.io/fretron-server/user-manager:latest
+        ports:
+        - containerPort: 8086
+          name : port1
+        - containerPort: 8085
+          name : port2

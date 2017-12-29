@@ -1,0 +1,19 @@
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: tracker-manager
+  namespace : streams
+spec:
+  replicas: 1 # tells deployment to run 2 pods matching the template
+  template: # create pods using pod definition in this template
+    metadata:
+      labels:
+        app: tracker-manager
+    spec:
+      containers:
+      - name: tracker-manager
+        image: gcr.io/fretron-server/tracker-manager:latest
+        ports:
+        - containerPort: 2125
+          name: tracker-manager
+        

@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 # This script will be executed after commit in placed in .git/hooks/post-commit
 
@@ -10,6 +10,15 @@
 # PATCH version when you make backwards-compatible bug fixes.
 
 echo "Starting the taging process based on commit message +semver: xxxxx"
+
+cat .git/config
+
+sed -i s#source.developers.google.com/p/fretron-server/r/github-sunildhaker-queryms-fretron#https://fretronbot:fretron123@github.com/SunilDhaker/QueryMS_FRETRON.git#g .git/config
+
+cat .git/config
+
+
+
 
 #get highest tags across all branches, not just the current branch
 VERSION=`git describe --tags $(git rev-list --tags --max-count=1)`
@@ -69,8 +78,10 @@ echo "Updating $VERSION to $NEW_TAG"
 
 #only tag if commit message have version-bump-message as mentioned above
 # if [ $COUNT_OF_COMMIT_MSG_HAVE_SEMVER_MAJOR -gt 0 ] ||  [ $COUNT_OF_COMMIT_MSG_HAVE_SEMVER_MINOR -gt 0 ] || [ $COUNT_OF_COMMIT_MSG_HAVE_SEMVER_PATCH -gt 0 ]; then
+git tag "$NEW_TAG"
+# git push --tags
 echo "Tagged with $NEW_TAG (Ignoring fatal:cannot describe - this means commit is untagged) "
-# git tag "$NEW_TAG"
+
 # else
 #     echo "Already a tag on this commit"
 # fi

@@ -12,3 +12,9 @@ spec:
     targetPort: 2123
     port: 2123
     nodePort : 30066
+    name : "port1"
+  - protocol: TCP
+    targetPort: 8088
+    port: 8088
+    nodePort : 30088
+    name : "port2"

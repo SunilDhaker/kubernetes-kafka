@@ -1,0 +1,6 @@
+steps:
+
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['build', '--tag=gcr.io/$PROJECT_ID/nginx-gateway', '--file=./Dockerfile', '.']
+
+images: ['gcr.io/$PROJECT_ID/nginx-gateway']

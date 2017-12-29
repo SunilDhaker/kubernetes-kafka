@@ -1,0 +1,881 @@
+   0.0 TL | Telepresence launched at Thu Nov 30 23:26:14 2017
+   0.0 TL |   ['/usr/local/bin/telepresence', '--deployment', 'myserver', '--expose', '8080', '--run-shell']
+   0.0 TL | Scout info: {'latest_version': '0.63', 'application': 'telepresence', 'notices': []}
+   0.0 TL | Context: gke_fretron-server_asia-southeast1-b_tracknet, namespace: default, kubectl_command: kubectl
+   0.0 TL | [1] Capturing: (['kubectl', '--context', 'gke_fretron-server_asia-southeast1-b_tracknet', 'cluster-info'],)...
+   0.8 TL | [1] captured.
+   0.8 TL | [2] Capturing: (['ssh', '-V'],)...
+   0.8 TL | [2] captured.
+   0.8 TL | [3] Capturing: (['which', 'torsocks'],)...
+   0.8 TL | [3] captured.
+   0.8 TL | [4] Capturing: (['which', 'sshfs'],)...
+   0.8 TL | [4] captured.
+   0.8 TL | [5] Capturing: (['kubectl', '--context', 'gke_fretron-server_asia-southeast1-b_tracknet', '--namespace', 'default', 'get', 'deployment', '-o', 'json', '--export', 'myserver'],)...
+   1.6 TL | [5] captured.
+   1.6 TL | Expected metadata for pods: {'creationTimestamp': None, 'labels': {'run': 'myserver'}}
+   1.6 TL | [6] Capturing: (['kubectl', '--context', 'gke_fretron-server_asia-southeast1-b_tracknet', '--namespace', 'default', 'get', 'pod', '-o', 'json', '--export'],)...
+   2.5 TL | [6] captured.
+   2.5 TL | Checking {'pod-template-hash': '194360874', 'run': 'myserver'} (phase Running)...
+   2.5 TL | Looks like we've found our pod!
+   2.5 TL | [7] Capturing: (['kubectl', '--context', 'gke_fretron-server_asia-southeast1-b_tracknet', '--namespace', 'default', 'get', 'pod', 'myserver-194360874-bcsdq', '-o', 'json'],)...
+   3.5 TL | [7] captured.
+   3.5 TL | [8] Launching: (['kubectl', '--context', 'gke_fretron-server_asia-southeast1-b_tracknet', '--namespace', 'default', 'logs', '-f', 'myserver-194360874-bcsdq', '--container', 'myserver'],)...
+   3.5 TL | [9] Launching: (['kubectl', '--context', 'gke_fretron-server_asia-southeast1-b_tracknet', '--namespace', 'default', 'port-forward', 'myserver-194360874-bcsdq', '55586:8022'],)...
+   3.5 TL | [10] Running: (['ssh', '-F', '/dev/null', '-q', '-oStrictHostKeyChecking=no', '-oUserKnownHostsFile=/dev/null', '-p', '55586', 'telepresence@localhost', '/bin/true'],)...
+   4.6 8 | Listening...
+   4.6 8 | 2017-11-30T17:56:06+0000 [-] Loading ./forwarder.py...
+   4.6 8 | 2017-11-30T17:56:06+0000 [-] SOCKSv5Factory starting on 9050
+   4.6 8 | 2017-11-30T17:56:06+0000 [socks.SOCKSv5Factory#info] Starting factory <socks.SOCKSv5Factory object at 0x7fca3cd7e908>
+   4.6 8 | 2017-11-30T17:56:06+0000 [-] /etc/resolv.conf changed, reparsing
+   4.6 8 | 2017-11-30T17:56:06+0000 [-] Resolver added ('10.47.240.10', 53) to server list
+   4.6 8 | 2017-11-30T17:56:06+0000 [-] DNSDatagramProtocol starting on 9053
+   4.6 8 | 2017-11-30T17:56:06+0000 [-] Starting protocol <twisted.names.dns.DNSDatagramProtocol object at 0x7fca3cd99be0>
+   4.6 8 | 2017-11-30T17:56:06+0000 [-] Loaded.
+   4.7 8 | 2017-11-30T17:56:06+0000 [twisted.scripts._twistd_unix.UnixAppLogger#info] twistd 17.9.0 (/usr/bin/python3.6 3.6.1) starting up.
+   4.7 8 | 2017-11-30T17:56:06+0000 [twisted.scripts._twistd_unix.UnixAppLogger#info] reactor class: twisted.internet.epollreactor.EPollReactor.
+   4.7 TL | [10] exit 255.
+   4.9 TL | [11] Running: (['ssh', '-F', '/dev/null', '-q', '-oStrictHostKeyChecking=no', '-oUserKnownHostsFile=/dev/null', '-p', '55586', 'telepresence@localhost', '/bin/true'],)...
+   5.5 9 | Forwarding from 127.0.0.1:55586 -> 8022
+   6.1 TL | [11] exit 255.
+   6.3 TL | [12] Running: (['ssh', '-F', '/dev/null', '-q', '-oStrictHostKeyChecking=no', '-oUserKnownHostsFile=/dev/null', '-p', '55586', 'telepresence@localhost', '/bin/true'],)...
+   6.3 9 | Handling connection for 55586
+   8.0 TL | [12] ran.
+   8.0 TL | [13] Launching: (['ssh', '-N', '-oServerAliveInterval=1', '-oServerAliveCountMax=10', '-F', '/dev/null', '-q', '-oStrictHostKeyChecking=no', '-oUserKnownHostsFile=/dev/null', '-p', '55586', 'telepresence@localhost', '-R', '*:8080:127.0.0.1:8080'],)...
+   8.0 TL | [14] Capturing: (['kubectl', '--context', 'gke_fretron-server_asia-southeast1-b_tracknet', '--namespace', 'default', 'exec', 'myserver-194360874-bcsdq', '--container', 'myserver', 'env'],)...
+   8.0 9 | Handling connection for 55586
+  10.2 TL | [14] captured.
+  10.2 TL | [15] Running: (['sshfs', '-p', '55586', '-F', '/dev/null', '-o', 'StrictHostKeyChecking=no', '-o', 'UserKnownHostsFile=/dev/null', 'telepresence@localhost:/', '/tmp/tmps8ha2w7t'],)...
+  10.3 9 | Handling connection for 55586
+  12.4 TL | [15] ran.
+  12.4 TL | [16] Capturing: (['kubectl', '--context', 'gke_fretron-server_asia-southeast1-b_tracknet', '--namespace', 'default', 'exec', '--container=myserver', 'myserver-194360874-bcsdq', '--', 'python3', '-c', '\nimport socket, sys, json\n\nresult = []\nfor host in sys.argv[1:]:\n    result.append(socket.gethostbyname(host))\nsys.stdout.write(json.dumps(result))\nsys.stdout.flush()\n'],)...
+  14.4 TL | [16] captured.
+  14.4 TL | [17] Capturing: (['kubectl', 'get', 'nodes', '-o', 'json'],)...
+  15.6 TL | [17] captured.
+  15.6 TL | [18] Capturing: (['kubectl', 'get', 'services', '-o', 'json'],)...
+  16.4 TL | [18] captured.
+  16.4 TL | [19] Running: (['kubectl', 'create', 'service', 'clusterip', 'telepresence-1512064590-7840881-2698', '--tcp=3000'],)...
+  17.2 19 | service "telepresence-1512064590-7840881-2698" created
+  17.2 TL | [19] ran.
+  17.2 TL | [20] Running: (['kubectl', 'create', 'service', 'clusterip', 'telepresence-1512064591-604257-2698', '--tcp=3000'],)...
+  17.8 20 | service "telepresence-1512064591-604257-2698" created
+  17.8 TL | [20] ran.
+  17.8 TL | [21] Running: (['kubectl', 'create', 'service', 'clusterip', 'telepresence-1512064592-1891918-2698', '--tcp=3000'],)...
+  18.5 21 | service "telepresence-1512064592-1891918-2698" created
+  18.5 TL | [21] ran.
+  18.5 TL | [22] Running: (['kubectl', 'create', 'service', 'clusterip', 'telepresence-1512064592-917156-2698', '--tcp=3000'],)...
+  19.3 22 | service "telepresence-1512064592-917156-2698" created
+  19.3 TL | [22] ran.
+  19.3 TL | [23] Running: (['kubectl', 'create', 'service', 'clusterip', 'telepresence-1512064593-710206-2698', '--tcp=3000'],)...
+  20.0 23 | service "telepresence-1512064593-710206-2698" created
+  20.0 TL | [23] ran.
+  20.0 TL | [24] Capturing: (['kubectl', 'get', 'services', '-o', 'json'],)...
+  20.9 TL | [24] captured.
+  21.0 TL | [25] Running: (['kubectl', 'delete', 'service', 'telepresence-1512064590-7840881-2698'],)...
+  21.6 25 | service "telepresence-1512064590-7840881-2698" deleted
+  21.6 TL | [25] ran.
+  21.6 TL | [26] Running: (['kubectl', 'delete', 'service', 'telepresence-1512064591-604257-2698'],)...
+  22.5 26 | service "telepresence-1512064591-604257-2698" deleted
+  22.5 TL | [26] ran.
+  22.5 TL | [27] Running: (['kubectl', 'delete', 'service', 'telepresence-1512064592-1891918-2698'],)...
+  23.3 27 | service "telepresence-1512064592-1891918-2698" deleted
+  23.3 TL | [27] ran.
+  23.3 TL | [28] Running: (['kubectl', 'delete', 'service', 'telepresence-1512064592-917156-2698'],)...
+  24.1 28 | service "telepresence-1512064592-917156-2698" deleted
+  24.1 TL | [28] ran.
+  24.1 TL | [29] Running: (['kubectl', 'delete', 'service', 'telepresence-1512064593-710206-2698'],)...
+  24.8 29 | service "telepresence-1512064593-710206-2698" deleted
+  24.8 TL | [29] ran.
+  24.8 TL | [30] Launching: (['sshuttle-telepresence', '-v', '--dns', '--method', 'auto', '-e', 'ssh -oStrictHostKeyChecking=no -oUserKnownHostsFile=/dev/null -F /dev/null', '--to-ns', '127.0.0.1:9053', '-r', 'telepresence@localhost:55586', '10.44.0.0/24', '10.47.240.0/20', '10.44.1.0/24'],)...
+  24.8 TL | [31] Capturing: (['python3', '-c', "import socket; socket.gethostbyname('hellotelepresence0')"],)...
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+socket.gaierror: [Errno 8] nodename nor servname provided, or not known
+  24.9 TL | [32] Capturing: (['python3', '-c', "import socket; socket.gethostbyname('hellotelepresence1')"],)...
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+socket.gaierror: [Errno 8] nodename nor servname provided, or not known
+  25.0 30 | Starting sshuttle proxy.
+  25.1 TL | [33] Capturing: (['python3', '-c', "import socket; socket.gethostbyname('hellotelepresence2')"],)...
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+socket.gaierror: [Errno 8] nodename nor servname provided, or not known
+  25.2 TL | [34] Capturing: (['python3', '-c', "import socket; socket.gethostbyname('hellotelepresence3')"],)...
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+socket.gaierror: [Errno 8] nodename nor servname provided, or not known
+  25.3 30 | firewall manager: Starting firewall with Python version 3.6.3
+  25.3 30 | firewall manager: ready method name pf.
+  25.3 30 | IPv6 enabled: True
+  25.3 30 | UDP enabled: False
+  25.3 30 | DNS enabled: True
+  25.3 30 | TCP redirector listening on ('::1', 12300, 0, 0).
+  25.3 30 | TCP redirector listening on ('127.0.0.1', 12300).
+  25.3 30 | DNS listening on ('::1', 12300, 0, 0).
+  25.3 30 | DNS listening on ('127.0.0.1', 12300).
+  25.3 30 | Starting client with Python version 3.6.3
+  25.3 30 | c : connecting to server...
+  25.3 9 | Handling connection for 55586
+  25.4 TL | [35] Capturing: (['python3', '-c', "import socket; socket.gethostbyname('hellotelepresence4')"],)...
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+socket.gaierror: [Errno 8] nodename nor servname provided, or not known
+  25.5 TL | [36] Capturing: (['python3', '-c', "import socket; socket.gethostbyname('hellotelepresence5')"],)...
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+socket.gaierror: [Errno 8] nodename nor servname provided, or not known
+  25.7 TL | [37] Capturing: (['python3', '-c', "import socket; socket.gethostbyname('hellotelepresence6')"],)...
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+socket.gaierror: [Errno 8] nodename nor servname provided, or not known
+  25.8 TL | [38] Capturing: (['python3', '-c', "import socket; socket.gethostbyname('hellotelepresence7')"],)...
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+socket.gaierror: [Errno 8] nodename nor servname provided, or not known
+  26.0 TL | [39] Capturing: (['python3', '-c', "import socket; socket.gethostbyname('hellotelepresence8')"],)...
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+socket.gaierror: [Errno 8] nodename nor servname provided, or not known
+  26.1 30 | Warning: Permanently added '[localhost]:55586' (ECDSA) to the list of known hosts.
+  26.2 TL | [40] Capturing: (['python3', '-c', "import socket; socket.gethostbyname('hellotelepresence9')"],)...
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+socket.gaierror: [Errno 8] nodename nor servname provided, or not known
+  26.3 TL | [41] Capturing: (['python3', '-c', "import socket; socket.gethostbyname('hellotelepresence10')"],)...
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+socket.gaierror: [Errno 8] nodename nor servname provided, or not known
+  26.5 TL | [42] Capturing: (['python3', '-c', "import socket; socket.gethostbyname('hellotelepresence11')"],)...
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+socket.gaierror: [Errno 8] nodename nor servname provided, or not known
+  26.6 TL | [43] Capturing: (['python3', '-c', "import socket; socket.gethostbyname('hellotelepresence12')"],)...
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+socket.gaierror: [Errno 8] nodename nor servname provided, or not known
+  26.8 TL | [44] Capturing: (['python3', '-c', "import socket; socket.gethostbyname('hellotelepresence13')"],)...
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+socket.gaierror: [Errno 8] nodename nor servname provided, or not known
+  27.1 TL | [45] Capturing: (['python3', '-c', "import socket; socket.gethostbyname('hellotelepresence14')"],)...
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+socket.gaierror: [Errno 8] nodename nor servname provided, or not known
+  27.4 TL | [46] Capturing: (['python3', '-c', "import socket; socket.gethostbyname('hellotelepresence15')"],)...
+  27.4 30 | Starting server with Python version 3.6.1
+  27.4 30 |  s: latency control setting = True
+  27.4 30 |  s: available routes:
+  27.4 30 |  s:   2/10.44.0.0/24
+  27.4 30 | c : Connected.
+  27.4 30 | firewall manager: setting up.
+  27.4 30 | >> pfctl -s Interfaces -i lo -v
+  27.4 30 | >> pfctl -s all
+  27.5 30 | >> pfctl -a sshuttle6-12300 -f /dev/stdin
+  27.5 30 | >> pfctl -E
+  27.5 30 | >> pfctl -s Interfaces -i lo -v
+  27.5 30 | >> pfctl -s all
+  27.5 30 | >> pfctl -a sshuttle-12300 -f /dev/stdin
+  27.5 30 | >> pfctl -E
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+socket.gaierror: [Errno 8] nodename nor servname provided, or not known
+  27.7 TL | [47] Capturing: (['python3', '-c', "import socket; socket.gethostbyname('hellotelepresence16')"],)...
+  27.8 30 | c : DNS request from ('2405:204:3210:6ee:4582:1f55:31fe:ba76', 53432, 0, 0) to None: 37 bytes
+  27.9 8 | 2017-11-30T17:56:42+0000 [stdout#info] Set DNS suffix we filter out to: []
+  27.9 8 | 2017-11-30T17:56:42+0000 [stdout#info] Result for b'hellotelepresence16' is ['127.0.0.1']
+  27.9 TL | [47] captured.
+  28.9 TL | [48] Capturing: (['python3', '-c', "import socket; socket.gethostbyname('hellotelepresence17')"],)...
+  29.0 30 | c : DNS request from ('2405:204:3210:6ee:4582:1f55:31fe:ba76', 63764, 0, 0) to None: 37 bytes
+  29.1 8 | 2017-11-30T17:56:43+0000 [stdout#info] Set DNS suffix we filter out to: []
+  29.1 8 | 2017-11-30T17:56:43+0000 [stdout#info] Result for b'hellotelepresence17' is ['127.0.0.1']
+  29.1 TL | [48] captured.
+  53.1 30 | c : DNS request from ('2405:204:3210:6ee:4582:1f55:31fe:ba76', 56435, 0, 0) to None: 28 bytes
+  53.4 8 | 2017-11-30T17:57:07+0000 [stdout#info] A query: b'mongo.mean'
+  53.4 8 | 2017-11-30T17:57:07+0000 [stdout#info] Result for b'mongo.mean' is ['10.44.1.104']
+  53.8 30 | c : DNS request from ('2405:204:3210:6ee:4582:1f55:31fe:ba76', 53578, 0, 0) to None: 23 bytes
+  54.2 8 | 2017-11-30T17:57:08+0000 [stdout#info] A query: b'redis'
+  54.2 8 | 2017-11-30T17:57:08+0000 [stdout#info] [Failure instance: Traceback: <class 'socket.gaierror'>: [Errno -2] Name does not resolve
+  54.2 8 | 2017-11-30T17:57:08+0000 [stdout#info] /usr/lib/python3.6/threading.py:916:_bootstrap_inner
+  54.2 8 | 2017-11-30T17:57:08+0000 [stdout#info] /usr/lib/python3.6/threading.py:864:run
+  54.2 8 | 2017-11-30T17:57:08+0000 [stdout#info] /usr/lib/python3.6/site-packages/twisted/_threads/_threadworker.py:46:work
+  54.2 8 | 2017-11-30T17:57:08+0000 [stdout#info] /usr/lib/python3.6/site-packages/twisted/_threads/_team.py:190:doWork
+  54.2 8 | 2017-11-30T17:57:08+0000 [stdout#info] --- <exception caught here> ---
+  54.2 8 | 2017-11-30T17:57:08+0000 [stdout#info] /usr/lib/python3.6/site-packages/twisted/python/threadpool.py:250:inContext
+  54.2 8 | 2017-11-30T17:57:08+0000 [stdout#info] /usr/lib/python3.6/site-packages/twisted/python/threadpool.py:266:<lambda>
+  54.2 8 | 2017-11-30T17:57:08+0000 [stdout#info] /usr/lib/python3.6/site-packages/twisted/python/context.py:122:callWithContext
+  54.2 8 | 2017-11-30T17:57:08+0000 [stdout#info] /usr/lib/python3.6/site-packages/twisted/python/context.py:85:callWithContext
+  54.2 8 | 2017-11-30T17:57:08+0000 [stdout#info] ./forwarder.py:31:resolve
+  54.2 8 | 2017-11-30T17:57:08+0000 [stdout#info] ]
+  54.6 30 | c : DNS request from ('2405:204:3210:6ee:4582:1f55:31fe:ba76', 50242, 0, 0) to None: 31 bytes
+  54.6 30 | c : DNS request from ('2405:204:3210:6ee:4582:1f55:31fe:ba76', 57667, 0, 0) to None: 31 bytes
+  54.6 30 | c : Accept TCP: 192.168.43.218:55650 -> 10.44.1.104:27017.
+  54.8 8 | 2017-11-30T17:57:09+0000 [stdout#info] A query: b'schemas.kafka'
+  54.8 8 | 2017-11-30T17:57:09+0000 [stdout#info] AAAA query, sending back A instead: b'schemas.kafka'
+  54.8 8 | 2017-11-30T17:57:09+0000 [stdout#info] A query: b'schemas.kafka'
+  54.8 8 | 2017-11-30T17:57:09+0000 [stdout#info] Result for b'schemas.kafka' is ['10.47.251.124']
+  54.8 8 | 2017-11-30T17:57:09+0000 [stdout#info] Result for b'schemas.kafka' is ['10.47.251.124']
+  54.9 30 | c : Accept TCP: 192.168.43.218:55652 -> 10.47.251.124:80.
+  55.5 30 | c : Accept TCP: 192.168.43.218:55653 -> 10.47.251.124:80.
+  55.5 30 | c : Accept TCP: 192.168.43.218:55654 -> 10.47.251.124:80.
+  55.5 30 | c : Accept TCP: 192.168.43.218:55655 -> 10.47.251.124:80.
+  55.5 30 | c : Accept TCP: 192.168.43.218:55656 -> 10.47.251.124:80.
+  55.5 30 | c : Accept TCP: 192.168.43.218:55657 -> 10.47.251.124:80.
+  55.5 30 | c : Accept TCP: 192.168.43.218:55658 -> 10.47.251.124:80.
+  55.5 30 | c : Accept TCP: 192.168.43.218:55659 -> 10.47.251.124:80.
+  55.5 30 | c : Accept TCP: 192.168.43.218:55660 -> 10.47.251.124:80.
+  55.5 30 | c : Accept TCP: 192.168.43.218:55661 -> 10.47.251.124:80.
+  55.5 30 | c : SW#12:192.168.43.218:55652: deleting (21 remain)
+  55.5 30 | c : SW'unknown':Mux#8: deleting (20 remain)
+  55.5 30 | c : Accept TCP: 192.168.43.218:55662 -> 10.47.251.124:80.
+  56.4 30 |  s: SW#-1:10.47.251.124:80: deleting (15 remain)
+  56.4 30 |  s: SW'unknown':Mux#8: deleting (14 remain)
+  56.7 30 | c : SW'unknown':Mux#9: deleting (21 remain)
+  56.7 30 | c : SW#13:192.168.43.218:55653: deleting (20 remain)
+  56.7 30 | c : SW'unknown':Mux#10: deleting (19 remain)
+  56.7 30 | c : SW#14:192.168.43.218:55654: deleting (18 remain)
+  56.7 30 | c : SW'unknown':Mux#11: deleting (17 remain)
+  56.7 30 | c : SW#15:192.168.43.218:55655: deleting (16 remain)
+  56.7 30 | c : Accept TCP: 192.168.43.218:55664 -> 10.47.251.124:80.
+  56.7 30 | c : Accept TCP: 192.168.43.218:55665 -> 10.47.251.124:80.
+  56.7 30 | c : Accept TCP: 192.168.43.218:55666 -> 10.47.251.124:80.
+  56.7 30 | c : Accept TCP: 192.168.43.218:55667 -> 10.47.251.124:80.
+  56.7 30 | c : Accept TCP: 192.168.43.218:55668 -> 10.47.251.124:80.
+  57.3 30 | c : SW#17:192.168.43.218:55657: deleting (25 remain)
+  57.3 30 | c : SW'unknown':Mux#13: deleting (24 remain)
+  57.3 30 | c : Accept TCP: 192.168.43.218:55669 -> 10.47.251.124:80.
+  58.1 30 | c : SW#18:192.168.43.218:55658: deleting (25 remain)
+  58.1 30 | c : SW'unknown':Mux#14: deleting (24 remain)
+  58.1 30 | c : Accept TCP: 192.168.43.218:55670 -> 10.47.251.124:80.
+  58.1 30 | c : Accept TCP: 192.168.43.218:55671 -> 10.47.251.124:80.
+  58.2 30 | c : Accept TCP: 192.168.43.218:55672 -> 10.47.251.124:80.
+  58.2 30 | c : SW#21:192.168.43.218:55661: deleting (29 remain)
+  58.2 30 | c : SW'unknown':Mux#17: deleting (28 remain)
+  59.8 30 |  s: SW'unknown':Mux#9: deleting (31 remain)
+  59.8 30 |  s: SW#10:10.47.251.124:80: deleting (30 remain)
+  59.8 30 |  s: SW'unknown':Mux#13: deleting (29 remain)
+  59.8 30 |  s: SW#14:10.47.251.124:80: deleting (28 remain)
+  59.8 30 |  s: SW'unknown':Mux#12: deleting (27 remain)
+  59.8 30 |  s: SW#13:10.47.251.124:80: deleting (26 remain)
+  59.8 30 |  s: SW'unknown':Mux#11: deleting (25 remain)
+  59.8 30 |  s: SW#12:10.47.251.124:80: deleting (24 remain)
+  59.8 30 |  s: SW'unknown':Mux#10: deleting (23 remain)
+  59.8 30 |  s: SW#11:10.47.251.124:80: deleting (22 remain)
+  59.8 30 | c : Accept TCP: 192.168.43.218:55673 -> 10.47.251.124:80.
+  59.8 30 | c : Accept TCP: 192.168.43.218:55674 -> 10.47.251.124:80.
+  59.8 30 | c : Accept TCP: 192.168.43.218:55675 -> 10.47.251.124:80.
+  59.8 30 | c : SW#20:192.168.43.218:55660: deleting (33 remain)
+  59.8 30 | c : SW'unknown':Mux#16: deleting (32 remain)
+  59.8 30 | c : SW#19:192.168.43.218:55659: deleting (31 remain)
+  59.8 30 | c : SW'unknown':Mux#15: deleting (30 remain)
+  59.8 30 | c : SW#15:192.168.43.218:55666: deleting (29 remain)
+  59.8 30 | c : SW'unknown':Mux#21: deleting (28 remain)
+  59.8 30 | c : SW#13:192.168.43.218:55664: deleting (27 remain)
+  59.8 30 | c : SW'unknown':Mux#19: deleting (26 remain)
+  60.8 30 | c : Accept TCP: 192.168.43.218:55676 -> 10.47.251.124:80.
+  60.8 30 | c : Accept TCP: 192.168.43.218:55677 -> 10.47.251.124:80.
+  61.1 30 | c : Accept TCP: 192.168.43.218:55678 -> 10.47.251.124:80.
+  61.1 30 | c : SW#22:192.168.43.218:55667: deleting (31 remain)
+  61.1 30 | c : SW'unknown':Mux#22: deleting (30 remain)
+  61.1 30 | c : SW#14:192.168.43.218:55665: deleting (29 remain)
+  61.1 30 | c : SW'unknown':Mux#20: deleting (28 remain)
+  61.1 30 | c : Accept TCP: 192.168.43.218:55679 -> 10.47.251.124:80.
+  61.2 30 | c : SW#17:192.168.43.218:55669: deleting (29 remain)
+  61.2 30 | c : SW'unknown':Mux#24: deleting (28 remain)
+  61.2 30 | c : Accept TCP: 192.168.43.218:55680 -> 10.47.251.124:80.
+  61.3 30 | c : Accept TCP: 192.168.43.218:55681 -> 10.47.251.124:80.
+  61.4 30 | c : SW#24:192.168.43.218:55671: deleting (31 remain)
+  61.4 30 | c : SW'unknown':Mux#26: deleting (30 remain)
+  61.4 30 | c : Accept TCP: 192.168.43.218:55682 -> 10.47.251.124:80.
+  61.4 30 | c : Accept TCP: 192.168.43.218:55683 -> 10.47.251.124:80.
+  61.5 30 | c : SW#25:192.168.43.218:55672: deleting (33 remain)
+  61.5 30 | c : SW'unknown':Mux#27: deleting (32 remain)
+  61.5 30 | c : SW#18:192.168.43.218:55670: deleting (31 remain)
+  61.5 30 | c : SW'unknown':Mux#25: deleting (30 remain)
+  61.5 30 | c : SW#23:192.168.43.218:55668: deleting (29 remain)
+  61.5 30 | c : SW'unknown':Mux#23: deleting (28 remain)
+  61.5 30 | c : SW#21:192.168.43.218:55673: deleting (27 remain)
+  61.5 30 | c : SW'unknown':Mux#28: deleting (26 remain)
+  61.5 30 | c : Accept TCP: 192.168.43.218:55684 -> 10.47.251.124:80.
+  61.6 30 | c : Accept TCP: 192.168.43.218:55685 -> 10.47.251.124:80.
+  61.6 30 | c : SW#26:192.168.43.218:55674: deleting (29 remain)
+  61.6 30 | c : SW'unknown':Mux#29: deleting (28 remain)
+  61.6 30 | c : SW#27:192.168.43.218:55675: deleting (27 remain)
+  61.6 30 | c : SW'unknown':Mux#30: deleting (26 remain)
+  61.7 30 |  s: SW'unknown':Mux#14: deleting (37 remain)
+  61.7 30 |  s: SW#15:10.47.251.124:80: deleting (36 remain)
+  61.7 30 |  s: SW'unknown':Mux#16: deleting (35 remain)
+  61.7 30 |  s: SW#9:10.47.251.124:80: deleting (34 remain)
+  61.7 30 |  s: SW'unknown':Mux#18: deleting (33 remain)
+  61.7 30 |  s: SW#17:10.47.251.124:80: deleting (32 remain)
+  61.7 30 |  s: SW'unknown':Mux#17: deleting (31 remain)
+  61.7 30 | c : Accept TCP: 192.168.43.218:55686 -> 10.47.251.124:80.
+  61.8 30 |  s: SW#16:10.47.251.124:80: deleting (30 remain)
+  61.8 30 |  s: SW'unknown':Mux#15: deleting (29 remain)
+  61.8 30 |  s: SW#8:10.47.251.124:80: deleting (28 remain)
+  61.8 30 |  s: SW'unknown':Mux#21: deleting (27 remain)
+  61.8 30 |  s: SW#20:10.47.251.124:80: deleting (26 remain)
+  61.8 30 |  s: SW'unknown':Mux#19: deleting (25 remain)
+  61.8 30 |  s: SW#18:10.47.251.124:80: deleting (24 remain)
+  61.8 30 |  s: SW'unknown':Mux#22: deleting (23 remain)
+  61.8 30 |  s: SW#21:10.47.251.124:80: deleting (22 remain)
+  61.8 30 |  s: SW'unknown':Mux#20: deleting (21 remain)
+  61.8 30 |  s: SW#19:10.47.251.124:80: deleting (20 remain)
+  61.9 30 | c : Accept TCP: 192.168.43.218:55687 -> 10.47.251.124:80.
+  62.0 30 | c : SW'unknown':Mux#31: deleting (29 remain)
+  62.0 30 | c : SW#13:192.168.43.218:55676: deleting (28 remain)
+  62.0 30 | c : SW'unknown':Mux#32: deleting (27 remain)
+  62.0 30 | c : SW#15:192.168.43.218:55677: deleting (26 remain)
+  62.0 30 | c : SW'unknown':Mux#33: deleting (25 remain)
+  62.0 30 | c : SW#19:192.168.43.218:55678: deleting (24 remain)
+  62.0 30 | c : Accept TCP: 192.168.43.218:55688 -> 10.47.251.124:80.
+  62.0 30 | c : Accept TCP: 192.168.43.218:55689 -> 10.47.251.124:80.
+  62.1 30 | c : Accept TCP: 192.168.43.218:55690 -> 10.47.251.124:80.
+  62.1 30 | c : SW#14:192.168.43.218:55679: deleting (29 remain)
+  62.1 30 | c : SW'unknown':Mux#34: deleting (28 remain)
+  62.1 30 | c : SW#17:192.168.43.218:55680: deleting (27 remain)
+  62.1 30 | c : SW'unknown':Mux#35: deleting (26 remain)
+  62.2 30 |  s: SW#-1:10.47.251.124:80: deleting (43 remain)
+  62.2 30 |  s: SW'unknown':Mux#33: deleting (42 remain)
+  62.2 30 |  s: SW#-1:10.47.251.124:80: deleting (41 remain)
+  62.2 30 |  s: SW'unknown':Mux#34: deleting (40 remain)
+  62.2 30 |  s: SW'unknown':Mux#24: deleting (39 remain)
+  62.2 30 |  s: SW#10:10.47.251.124:80: deleting (38 remain)
+  62.2 30 |  s: SW'unknown':Mux#27: deleting (37 remain)
+  62.2 30 |  s: SW#13:10.47.251.124:80: deleting (36 remain)
+  62.3 30 |  s: SW'unknown':Mux#25: deleting (35 remain)
+  62.3 30 |  s: SW#11:10.47.251.124:80: deleting (34 remain)
+  62.3 30 |  s: SW'unknown':Mux#26: deleting (33 remain)
+  62.3 30 |  s: SW#12:10.47.251.124:80: deleting (32 remain)
+  62.3 30 |  s: SW'unknown':Mux#23: deleting (31 remain)
+  62.3 30 |  s: SW#22:10.47.251.124:80: deleting (30 remain)
+  62.3 30 |  s: SW'unknown':Mux#28: deleting (29 remain)
+  62.3 30 |  s: SW#14:10.47.251.124:80: deleting (28 remain)
+  62.3 30 |  s: SW'unknown':Mux#29: deleting (27 remain)
+  62.3 30 |  s: SW#23:10.47.251.124:80: deleting (26 remain)
+  62.3 30 |  s: SW'unknown':Mux#30: deleting (25 remain)
+  62.3 30 |  s: SW#24:10.47.251.124:80: deleting (24 remain)
+  62.3 30 |  s: SW'unknown':Mux#31: deleting (23 remain)
+  62.3 30 |  s: SW#25:10.47.251.124:80: deleting (22 remain)
+  62.3 30 |  s: SW'unknown':Mux#32: deleting (21 remain)
+  62.3 30 |  s: SW#8:10.47.251.124:80: deleting (20 remain)
+  62.4 30 | c : Accept TCP: 192.168.43.218:55691 -> 10.47.251.124:80.
+  62.5 30 | c : Accept TCP: 192.168.43.218:55692 -> 10.47.251.124:80.
+  62.5 30 | c : Accept TCP: 192.168.43.218:55693 -> 10.47.251.124:80.
+  62.6 30 | c : Accept TCP: 192.168.43.218:55694 -> 10.47.251.124:80.
+  62.7 30 | c : Accept TCP: 192.168.43.218:55695 -> 10.47.251.124:80.
+  62.7 30 | c : SW#24:192.168.43.218:55683: deleting (35 remain)
+  62.7 30 | c : SW'unknown':Mux#38: deleting (34 remain)
+  62.7 30 | c : SW#22:192.168.43.218:55682: deleting (33 remain)
+  62.7 30 | c : SW'unknown':Mux#37: deleting (32 remain)
+  62.7 30 | c : SW#20:192.168.43.218:55681: deleting (31 remain)
+  62.7 30 | c : SW'unknown':Mux#36: deleting (30 remain)
+  62.7 30 | c : Accept TCP: 192.168.43.218:55696 -> 10.47.251.124:80.
+  62.8 30 | c : SW#23:192.168.43.218:55686: deleting (31 remain)
+  62.8 30 | c : SW'unknown':Mux#41: deleting (30 remain)
+  62.8 30 | c : Accept TCP: 192.168.43.218:55697 -> 10.47.251.124:80.
+  62.9 30 | c : SW#15:192.168.43.218:55689: deleting (31 remain)
+  62.9 30 | c : SW'unknown':Mux#44: deleting (30 remain)
+  62.9 30 | c : SW#25:192.168.43.218:55687: deleting (29 remain)
+  62.9 30 | c : SW'unknown':Mux#42: deleting (28 remain)
+  62.9 30 | c : SW#21:192.168.43.218:55685: deleting (27 remain)
+  62.9 30 | c : SW'unknown':Mux#40: deleting (26 remain)
+  62.9 30 | c : Accept TCP: 192.168.43.218:55698 -> 10.47.251.124:80.
+  62.9 30 | c : Accept TCP: 192.168.43.218:55699 -> 10.47.251.124:80.
+  62.9 30 | c : SW#18:192.168.43.218:55684: deleting (29 remain)
+  62.9 30 | c : SW'unknown':Mux#39: deleting (28 remain)
+  62.9 30 | c : SW#13:192.168.43.218:55688: deleting (27 remain)
+  62.9 30 | c : SW'unknown':Mux#43: deleting (26 remain)
+  63.0 30 | c : Accept TCP: 192.168.43.218:55700 -> 10.47.251.124:80.
+  63.0 30 |  s: SW'unknown':Mux#38: deleting (29 remain)
+  63.0 30 |  s: SW#19:10.47.251.124:80: deleting (28 remain)
+  63.0 30 | c : Accept TCP: 192.168.43.218:55701 -> 10.47.251.124:80.
+  63.0 30 | c : SW#19:192.168.43.218:55690: deleting (29 remain)
+  63.0 30 | c : SW'unknown':Mux#45: deleting (28 remain)
+  63.0 30 | c : SW#14:192.168.43.218:55691: deleting (27 remain)
+  63.0 30 | c : SW'unknown':Mux#46: deleting (26 remain)
+  63.2 30 | c : Accept TCP: 192.168.43.218:55702 -> 10.47.251.124:80.
+  63.2 30 | c : Accept TCP: 192.168.43.218:55703 -> 10.47.251.124:80.
+  63.2 30 | c : SW#26:192.168.43.218:55693: deleting (29 remain)
+  63.2 30 | c : SW'unknown':Mux#48: deleting (28 remain)
+  63.3 30 | c : Accept TCP: 192.168.43.218:55704 -> 10.47.251.124:80.
+  63.4 30 | c : SW#27:192.168.43.218:55694: deleting (29 remain)
+  63.4 30 | c : SW'unknown':Mux#49: deleting (28 remain)
+  63.5 30 |  s: SW'unknown':Mux#35: deleting (35 remain)
+  63.5 30 |  s: SW#16:10.47.251.124:80: deleting (34 remain)
+  63.5 30 |  s: SW'unknown':Mux#36: deleting (33 remain)
+  63.5 30 |  s: SW#17:10.47.251.124:80: deleting (32 remain)
+  63.5 30 |  s: SW'unknown':Mux#37: deleting (31 remain)
+  63.5 30 |  s: SW#18:10.47.251.124:80: deleting (30 remain)
+  63.5 30 |  s: SW'unknown':Mux#41: deleting (29 remain)
+  63.5 30 |  s: SW#26:10.47.251.124:80: deleting (28 remain)
+  63.5 30 |  s: SW'unknown':Mux#42: deleting (27 remain)
+  63.5 30 |  s: SW#27:10.47.251.124:80: deleting (26 remain)
+  63.5 30 |  s: SW'unknown':Mux#44: deleting (25 remain)
+  63.5 30 |  s: SW#8:10.47.251.124:80: deleting (24 remain)
+  63.5 30 |  s: SW'unknown':Mux#40: deleting (23 remain)
+  63.5 30 |  s: SW#21:10.47.251.124:80: deleting (22 remain)
+  63.5 30 |  s: SW'unknown':Mux#43: deleting (25 remain)
+  63.5 30 |  s: SW#28:10.47.251.124:80: deleting (24 remain)
+  63.5 30 |  s: SW'unknown':Mux#46: deleting (27 remain)
+  63.5 30 |  s: SW#10:10.47.251.124:80: deleting (26 remain)
+  63.6 30 | c : Accept TCP: 192.168.43.218:55705 -> 10.47.251.124:80.
+  63.6 30 | c : Accept TCP: 192.168.43.218:55706 -> 10.47.251.124:80.
+  63.6 30 | c : Accept TCP: 192.168.43.218:55707 -> 10.47.251.124:80.
+  63.6 30 | c : Accept TCP: 192.168.43.218:55708 -> 10.47.251.124:80.
+  63.7 30 | c : Accept TCP: 192.168.43.218:55709 -> 10.47.251.124:80.
+  63.7 30 | c : Accept TCP: 192.168.43.218:55710 -> 10.47.251.124:80.
+  64.1 30 | c : SW#15:192.168.43.218:55698: deleting (39 remain)
+  64.1 30 | c : SW'unknown':Mux#53: deleting (38 remain)
+  64.1 30 | c : SW#22:192.168.43.218:55697: deleting (37 remain)
+  64.1 30 | c : SW'unknown':Mux#52: deleting (36 remain)
+  64.1 30 | c : SW#20:192.168.43.218:55696: deleting (35 remain)
+  64.1 30 | c : SW'unknown':Mux#51: deleting (34 remain)
+  64.1 30 | c : SW'unknown':Mux#47: deleting (33 remain)
+  64.1 30 | c : SW#17:192.168.43.218:55692: deleting (32 remain)
+  64.1 30 | c : SW'unknown':Mux#50: deleting (31 remain)
+  64.1 30 | c : SW#28:192.168.43.218:55695: deleting (30 remain)
+  64.1 30 | c : SW#21:192.168.43.218:55699: deleting (29 remain)
+  64.1 30 | c : SW'unknown':Mux#54: deleting (28 remain)
+  64.1 30 | c : SW'unknown':Mux#55: deleting (27 remain)
+  64.1 30 | c : SW#13:192.168.43.218:55700: deleting (26 remain)
+  64.1 30 | c : SW'unknown':Mux#56: deleting (25 remain)
+  64.1 30 | c : SW#18:192.168.43.218:55701: deleting (24 remain)
+  64.1 30 | c : SW'unknown':Mux#57: deleting (23 remain)
+  64.1 30 | c : SW#14:192.168.43.218:55702: deleting (22 remain)
+  64.1 30 | c : Accept TCP: 192.168.43.218:55711 -> 10.47.251.124:80.
+  64.1 30 | c : Accept TCP: 192.168.43.218:55712 -> 10.47.251.124:80.
+  64.1 30 | c : Accept TCP: 192.168.43.218:55713 -> 10.47.251.124:80.
+  64.1 30 | c : Accept TCP: 192.168.43.218:55714 -> 10.47.251.124:80.
+  64.1 30 |  s: SW'unknown':Mux#51: deleting (35 remain)
+  64.1 30 |  s: SW#15:10.47.251.124:80: deleting (34 remain)
+  64.1 30 | c : SW#23:192.168.43.218:55704: deleting (29 remain)
+  64.1 30 | c : SW'unknown':Mux#59: deleting (28 remain)
+  64.1 30 | c : SW#19:192.168.43.218:55703: deleting (27 remain)
+  64.1 30 | c : SW'unknown':Mux#58: deleting (26 remain)
+  64.1 30 | c : Accept TCP: 192.168.43.218:55715 -> 10.47.251.124:80.
+  64.2 30 | c : Accept TCP: 192.168.43.218:55716 -> 10.47.251.124:80.
+  64.3 30 | c : SW#24:192.168.43.218:55705: deleting (29 remain)
+  64.3 30 | c : SW'unknown':Mux#60: deleting (28 remain)
+  64.3 30 | c : SW#25:192.168.43.218:55706: deleting (27 remain)
+  64.3 30 | c : SW'unknown':Mux#61: deleting (26 remain)
+  64.3 30 | c : Accept TCP: 192.168.43.218:55717 -> 10.47.251.124:80.
+  64.3 30 |  s: SW#-1:10.47.251.124:80: deleting (41 remain)
+  64.3 30 | c : Accept TCP: 192.168.43.218:55718 -> 10.47.251.124:80.
+  64.3 30 | c : SW#26:192.168.43.218:55707: deleting (29 remain)
+  64.3 30 | c : SW'unknown':Mux#62: deleting (28 remain)
+  64.4 30 |  s: SW'unknown':Mux#53: deleting (40 remain)
+  64.4 30 |  s: SW#-1:10.47.251.124:80: deleting (39 remain)
+  64.4 30 |  s: SW'unknown':Mux#54: deleting (38 remain)
+  64.4 30 |  s: SW#-1:10.47.251.124:80: deleting (37 remain)
+  64.4 30 |  s: SW'unknown':Mux#55: deleting (36 remain)
+  64.4 30 |  s: SW'unknown':Mux#39: deleting (35 remain)
+  64.4 30 |  s: SW#20:10.47.251.124:80: deleting (34 remain)
+  64.4 30 |  s: SW'unknown':Mux#45: deleting (33 remain)
+  64.4 30 |  s: SW#9:10.47.251.124:80: deleting (32 remain)
+  64.4 30 |  s: SW'unknown':Mux#48: deleting (31 remain)
+  64.4 30 |  s: SW#12:10.47.251.124:80: deleting (30 remain)
+  64.4 30 |  s: SW'unknown':Mux#47: deleting (29 remain)
+  64.4 30 |  s: SW#11:10.47.251.124:80: deleting (28 remain)
+  64.4 30 |  s: SW'unknown':Mux#49: deleting (27 remain)
+  64.4 30 |  s: SW#13:10.47.251.124:80: deleting (26 remain)
+  64.4 30 |  s: SW'unknown':Mux#50: deleting (25 remain)
+  64.4 30 |  s: SW#14:10.47.251.124:80: deleting (24 remain)
+  64.4 30 |  s: SW'unknown':Mux#52: deleting (23 remain)
+  64.4 30 |  s: SW#22:10.47.251.124:80: deleting (22 remain)
+  64.6 30 |  s: SW'unknown':Mux#59: deleting (29 remain)
+  64.6 30 |  s: SW#21:10.47.251.124:80: deleting (28 remain)
+  64.6 30 |  s: SW'unknown':Mux#58: deleting (27 remain)
+  64.6 30 |  s: SW#19:10.47.251.124:80: deleting (26 remain)
+  64.6 30 | c : Accept TCP: 192.168.43.218:55719 -> 10.47.251.124:80.
+  64.6 30 | c : Accept TCP: 192.168.43.218:55720 -> 10.47.251.124:80.
+  64.6 30 | c : Accept TCP: 192.168.43.218:55721 -> 10.47.251.124:80.
+  64.6 30 | c : SW#27:192.168.43.218:55708: deleting (33 remain)
+  64.6 30 | c : SW'unknown':Mux#63: deleting (32 remain)
+  64.6 30 | c : SW#29:192.168.43.218:55709: deleting (31 remain)
+  64.6 30 | c : SW'unknown':Mux#64: deleting (30 remain)
+  64.6 30 | c : SW#30:192.168.43.218:55710: deleting (29 remain)
+  64.6 30 | c : SW'unknown':Mux#65: deleting (28 remain)
+  64.6 30 | c : SW#13:192.168.43.218:55711: deleting (27 remain)
+  64.6 30 | c : SW'unknown':Mux#66: deleting (26 remain)
+  64.8 30 | c : Accept TCP: 192.168.43.218:55722 -> 10.47.251.124:80.
+  64.8 30 | c : Accept TCP: 192.168.43.218:55723 -> 10.47.251.124:80.
+  64.8 30 | c : SW#14:192.168.43.218:55712: deleting (29 remain)
+  64.8 30 | c : SW'unknown':Mux#67: deleting (28 remain)
+  64.8 30 | c : SW#15:192.168.43.218:55713: deleting (27 remain)
+  64.8 30 | c : SW'unknown':Mux#68: deleting (26 remain)
+  64.8 30 | c : SW#17:192.168.43.218:55714: deleting (25 remain)
+  64.8 30 | c : SW'unknown':Mux#69: deleting (24 remain)
+  64.8 30 | c : Accept TCP: 192.168.43.218:55724 -> 10.47.251.124:80.
+  64.8 30 |  s: SW'unknown':Mux#61: deleting (29 remain)
+  64.8 30 |  s: SW#24:10.47.251.124:80: deleting (28 remain)
+  64.8 30 |  s: SW'unknown':Mux#63: deleting (31 remain)
+  64.8 30 |  s: SW#26:10.47.251.124:80: deleting (30 remain)
+  65.3 30 | c : DNS request from ('2405:204:3210:6ee:4582:1f55:31fe:ba76', 55371, 0, 0) to None: 31 bytes
+  65.3 30 | c : SW#20:192.168.43.218:55717: deleting (25 remain)
+  65.3 30 | c : SW'unknown':Mux#72: deleting (24 remain)
+  65.3 30 | c : SW#19:192.168.43.218:55716: deleting (23 remain)
+  65.3 30 | c : SW'unknown':Mux#71: deleting (22 remain)
+  65.3 30 | c : SW#18:192.168.43.218:55715: deleting (21 remain)
+  65.3 30 | c : SW'unknown':Mux#70: deleting (20 remain)
+  65.3 30 | c : SW#21:192.168.43.218:55718: deleting (19 remain)
+  65.3 30 | c : SW'unknown':Mux#73: deleting (18 remain)
+  65.3 30 | c : SW#22:192.168.43.218:55719: deleting (17 remain)
+  65.3 30 | c : SW'unknown':Mux#74: deleting (16 remain)
+  65.4 30 |  s: SW#-1:10.47.251.124:80: deleting (39 remain)
+  65.4 30 |  s: SW'unknown':Mux#66: deleting (38 remain)
+  65.4 30 |  s: SW#-1:10.47.251.124:80: deleting (37 remain)
+  65.4 30 |  s: SW'unknown':Mux#67: deleting (36 remain)
+  65.4 30 |  s: SW'unknown':Mux#65: deleting (35 remain)
+  65.4 30 |  s: SW#28:10.47.251.124:80: deleting (34 remain)
+  65.4 30 |  s: SW'unknown':Mux#57: deleting (33 remain)
+  65.4 30 |  s: SW#10:10.47.251.124:80: deleting (32 remain)
+  65.4 30 |  s: SW'unknown':Mux#56: deleting (31 remain)
+  65.4 30 |  s: SW#18:10.47.251.124:80: deleting (30 remain)
+  65.4 30 |  s: SW'unknown':Mux#60: deleting (29 remain)
+  65.4 30 |  s: SW#23:10.47.251.124:80: deleting (28 remain)
+  65.4 30 |  s: SW'unknown':Mux#62: deleting (27 remain)
+  65.4 30 |  s: SW#25:10.47.251.124:80: deleting (26 remain)
+  65.4 30 |  s: SW'unknown':Mux#64: deleting (25 remain)
+  65.4 30 |  s: SW#27:10.47.251.124:80: deleting (24 remain)
+  65.4 30 |  s: SW'unknown':Mux#69: deleting (23 remain)
+  65.4 30 |  s: SW#12:10.47.251.124:80: deleting (22 remain)
+  65.4 30 |  s: SW'unknown':Mux#68: deleting (21 remain)
+  65.4 30 |  s: SW#11:10.47.251.124:80: deleting (20 remain)
+  65.6 30 |  s: SW'unknown':Mux#76: deleting (21 remain)
+  65.6 30 |  s: SW#20:10.47.251.124:80: deleting (20 remain)
+  65.6 30 |  s: SW'unknown':Mux#75: deleting (19 remain)
+  65.6 30 |  s: SW#19:10.47.251.124:80: deleting (18 remain)
+  65.6 30 |  s: SW'unknown':Mux#74: deleting (17 remain)
+  65.6 30 |  s: SW#17:10.47.251.124:80: deleting (16 remain)
+  65.6 30 |  s: SW'unknown':Mux#73: deleting (15 remain)
+  65.6 30 |  s: SW#16:10.47.251.124:80: deleting (14 remain)
+  65.6 30 |  s: SW'unknown':Mux#72: deleting (13 remain)
+  65.6 30 |  s: SW#15:10.47.251.124:80: deleting (12 remain)
+  65.6 8 | 2017-11-30T17:57:19+0000 [stdout#info] A query: b'schemas.kafka'
+  65.6 8 | 2017-11-30T17:57:19+0000 [stdout#info] Result for b'schemas.kafka' is ['10.47.251.124']
+  65.6 30 | c : Accept TCP: 192.168.43.218:55725 -> 10.47.251.124:80.
+  65.6 30 | c : Accept TCP: 192.168.43.218:55726 -> 10.47.251.124:80.
+  65.6 30 | c : Accept TCP: 192.168.43.218:55727 -> 10.47.251.124:80.
+  65.6 30 | c : Accept TCP: 192.168.43.218:55728 -> 10.47.251.124:80.
+  65.6 30 | c : Accept TCP: 192.168.43.218:55729 -> 10.47.251.124:80.
+  65.6 30 | c : Accept TCP: 192.168.43.218:55730 -> 10.47.251.124:80.
+  65.6 30 | c : Accept TCP: 192.168.43.218:55731 -> 10.47.251.124:80.
+  65.6 30 | c : Accept TCP: 192.168.43.218:55732 -> 10.47.251.124:80.
+  65.6 30 | c : Accept TCP: 192.168.43.218:55733 -> 10.47.251.124:80.
+  65.6 30 | c : Accept TCP: 192.168.43.218:55734 -> 10.47.251.124:80.
+  65.6 30 | c : SW#23:192.168.43.218:55720: deleting (35 remain)
+  65.6 30 | c : SW'unknown':Mux#75: deleting (34 remain)
+  65.6 30 | c : SW#24:192.168.43.218:55721: deleting (33 remain)
+  65.6 30 | c : SW'unknown':Mux#76: deleting (32 remain)
+  65.6 30 | c : SW#13:192.168.43.218:55722: deleting (31 remain)
+  65.6 30 | c : SW'unknown':Mux#77: deleting (30 remain)
+  65.6 30 | c : SW#25:192.168.43.218:55723: deleting (29 remain)
+  65.6 30 | c : SW'unknown':Mux#78: deleting (28 remain)
+  65.6 30 | c : SW#14:192.168.43.218:55724: deleting (27 remain)
+  65.6 30 | c : SW'unknown':Mux#79: deleting (26 remain)
+  66.0 30 | c : Accept TCP: 192.168.43.218:55735 -> 10.47.251.124:80.
+  66.0 30 | c : Accept TCP: 192.168.43.218:55736 -> 10.47.251.124:80.
+  66.0 30 | c : SW#15:192.168.43.218:55725: deleting (29 remain)
+  66.0 30 | c : SW'unknown':Mux#81: deleting (28 remain)
+  66.0 30 | c : SW#17:192.168.43.218:55726: deleting (27 remain)
+  66.0 30 | c : SW'unknown':Mux#82: deleting (26 remain)
+  66.1 30 | c : Accept TCP: 192.168.43.218:55737 -> 10.47.251.124:80.
+  66.1 30 | c : Accept TCP: 192.168.43.218:55738 -> 10.47.251.124:80.
+  67.1 30 |  s: SW#-1:10.47.251.124:80: deleting (35 remain)
+  67.1 30 |  s: SW'unknown':Mux#79: deleting (34 remain)
+  67.1 30 |  s: SW#-1:10.47.251.124:80: deleting (33 remain)
+  67.1 30 |  s: SW'unknown':Mux#81: deleting (32 remain)
+  67.1 30 |  s: SW#-1:10.47.251.124:80: deleting (31 remain)
+  67.1 30 |  s: SW'unknown':Mux#82: deleting (30 remain)
+  67.1 30 |  s: SW'unknown':Mux#71: deleting (29 remain)
+  67.1 30 |  s: SW#14:10.47.251.124:80: deleting (28 remain)
+  67.1 30 |  s: SW'unknown':Mux#70: deleting (27 remain)
+  67.1 30 |  s: SW#13:10.47.251.124:80: deleting (26 remain)
+  67.1 30 |  s: SW'unknown':Mux#77: deleting (25 remain)
+  67.1 30 |  s: SW#21:10.47.251.124:80: deleting (24 remain)
+  67.1 30 |  s: SW'unknown':Mux#78: deleting (23 remain)
+  67.1 30 |  s: SW#22:10.47.251.124:80: deleting (22 remain)
+  67.3 30 | c : SW#19:192.168.43.218:55728: deleting (29 remain)
+  67.3 30 | c : SW'unknown':Mux#84: deleting (28 remain)
+  67.3 30 | c : Accept TCP: 192.168.43.218:55739 -> 10.47.251.124:80.
+  67.4 30 | c : Accept TCP: 192.168.43.218:55740 -> 10.47.251.124:80.
+  67.4 30 | c : Accept TCP: 192.168.43.218:55741 -> 10.47.251.124:80.
+  67.5 30 | c : SW'unknown':Mux#83: deleting (33 remain)
+  67.5 30 | c : SW#18:192.168.43.218:55727: deleting (32 remain)
+  67.6 30 | c : SW#28:192.168.43.218:55734: deleting (31 remain)
+  67.6 30 | c : SW'unknown':Mux#90: deleting (30 remain)
+  67.6 30 | c : SW#26:192.168.43.218:55732: deleting (29 remain)
+  67.6 30 | c : SW'unknown':Mux#88: deleting (28 remain)
+  67.6 30 | c : Accept TCP: 192.168.43.218:55742 -> 10.47.251.124:80.
+  67.6 30 | c : Accept TCP: 192.168.43.218:55743 -> 10.47.251.124:80.
+  67.6 30 | c : Accept TCP: 192.168.43.218:55744 -> 10.47.251.124:80.
+  67.6 30 | c : Accept TCP: 192.168.43.218:55745 -> 10.47.251.124:80.
+  67.8 30 | c : Accept TCP: 192.168.43.218:55746 -> 10.47.251.124:80.
+  67.8 30 | c : Accept TCP: 192.168.43.218:55747 -> 10.47.251.124:80.
+  67.8 30 | c : SW#14:192.168.43.218:55736: deleting (39 remain)
+  67.8 30 | c : SW'unknown':Mux#92: deleting (38 remain)
+  67.8 30 | c : SW#13:192.168.43.218:55735: deleting (37 remain)
+  67.8 30 | c : SW'unknown':Mux#91: deleting (36 remain)
+  67.8 30 | c : SW#27:192.168.43.218:55733: deleting (35 remain)
+  67.8 30 | c : SW'unknown':Mux#89: deleting (34 remain)
+  67.8 30 | c : SW#22:192.168.43.218:55731: deleting (33 remain)
+  67.8 30 | c : SW'unknown':Mux#87: deleting (32 remain)
+  67.8 30 | c : SW#21:192.168.43.218:55730: deleting (31 remain)
+  67.8 30 | c : SW'unknown':Mux#86: deleting (30 remain)
+  67.8 30 | c : SW#20:192.168.43.218:55729: deleting (29 remain)
+  67.8 30 | c : SW'unknown':Mux#85: deleting (28 remain)
+  67.8 30 | c : SW#17:192.168.43.218:55738: deleting (27 remain)
+  67.8 30 | c : SW'unknown':Mux#94: deleting (26 remain)
+  67.8 30 | c : Accept TCP: 192.168.43.218:55748 -> 10.47.251.124:80.
+  67.9 30 | c : Accept TCP: 192.168.43.218:55749 -> 10.47.251.124:80.
+  68.0 30 | c : SW#19:192.168.43.218:55739: deleting (29 remain)
+  68.0 30 | c : SW'unknown':Mux#95: deleting (28 remain)
+  68.0 30 | c : Accept TCP: 192.168.43.218:55750 -> 10.47.251.124:80.
+  68.0 30 | c : Accept TCP: 192.168.43.218:55751 -> 10.47.251.124:80.
+  68.4 30 |  s: SW'unknown':Mux#83: deleting (39 remain)
+  68.4 30 |  s: SW#11:10.47.251.124:80: deleting (38 remain)
+  68.4 30 |  s: SW'unknown':Mux#84: deleting (37 remain)
+  68.4 30 |  s: SW#12:10.47.251.124:80: deleting (36 remain)
+  68.4 30 |  s: SW'unknown':Mux#88: deleting (35 remain)
+  68.4 30 |  s: SW#18:10.47.251.124:80: deleting (34 remain)
+  68.4 30 |  s: SW'unknown':Mux#90: deleting (33 remain)
+  68.4 30 |  s: SW#20:10.47.251.124:80: deleting (32 remain)
+  68.4 30 |  s: SW'unknown':Mux#87: deleting (31 remain)
+  68.4 30 |  s: SW#17:10.47.251.124:80: deleting (30 remain)
+  68.4 30 |  s: SW'unknown':Mux#86: deleting (29 remain)
+  68.4 30 |  s: SW#16:10.47.251.124:80: deleting (28 remain)
+  68.4 30 |  s: SW'unknown':Mux#91: deleting (27 remain)
+  68.4 30 |  s: SW#23:10.47.251.124:80: deleting (26 remain)
+  68.4 30 |  s: SW'unknown':Mux#89: deleting (25 remain)
+  68.4 30 |  s: SW#19:10.47.251.124:80: deleting (24 remain)
+  68.4 30 |  s: SW'unknown':Mux#94: deleting (29 remain)
+  68.4 30 |  s: SW#8:10.47.251.124:80: deleting (28 remain)
+  68.4 30 |  s: SW'unknown':Mux#93: deleting (27 remain)
+  68.4 30 |  s: SW#6:10.47.251.124:80: deleting (26 remain)
+  68.4 30 | c : SW#23:192.168.43.218:55740: deleting (31 remain)
+  68.4 30 | c : SW'unknown':Mux#96: deleting (30 remain)
+  68.4 30 | c : Accept TCP: 192.168.43.218:55752 -> 10.47.251.124:80.
+  68.7 30 | c : Accept TCP: 192.168.43.218:55753 -> 10.47.251.124:80.
+  68.7 30 | c : SW#24:192.168.43.218:55741: deleting (33 remain)
+  68.7 30 | c : SW'unknown':Mux#97: deleting (32 remain)
+  68.7 30 | c : SW#26:192.168.43.218:55744: deleting (31 remain)
+  68.7 30 | c : SW'unknown':Mux#100: deleting (30 remain)
+  68.8 30 | c : Accept TCP: 192.168.43.218:55754 -> 10.47.251.124:80.
+  68.8 30 | c : Accept TCP: 192.168.43.218:55755 -> 10.47.251.124:80.
+  68.8 30 | c : Accept TCP: 192.168.43.218:55756 -> 10.47.251.124:80.
+  68.9 30 | c : SW#18:192.168.43.218:55742: deleting (35 remain)
+  68.9 30 | c : SW'unknown':Mux#98: deleting (34 remain)
+  68.9 30 | c : Accept TCP: 192.168.43.218:55757 -> 10.47.251.124:80.
+  69.1 30 | c : SW#19:192.168.43.218:55751: deleting (35 remain)
+  69.1 30 | c : SW'unknown':Mux#107: deleting (34 remain)
+  69.1 30 | c : SW#17:192.168.43.218:55750: deleting (33 remain)
+  69.1 30 | c : SW'unknown':Mux#106: deleting (32 remain)
+  69.1 30 | c : SW#14:192.168.43.218:55749: deleting (31 remain)
+  69.1 30 | c : SW'unknown':Mux#105: deleting (30 remain)
+  69.1 30 | c : SW#30:192.168.43.218:55747: deleting (29 remain)
+  69.1 30 | c : SW'unknown':Mux#103: deleting (28 remain)
+  69.1 30 | c : SW#29:192.168.43.218:55746: deleting (27 remain)
+  69.1 30 | c : SW'unknown':Mux#102: deleting (26 remain)
+  69.3 30 |  s: SW#-1:10.47.251.124:80: deleting (39 remain)
+  69.3 30 |  s: SW'unknown':Mux#102: deleting (38 remain)
+  69.3 30 |  s: SW#-1:10.47.251.124:80: deleting (37 remain)
+  69.3 30 |  s: SW'unknown':Mux#103: deleting (36 remain)
+  69.3 30 |  s: SW#-1:10.47.251.124:80: deleting (35 remain)
+  69.3 30 |  s: SW'unknown':Mux#105: deleting (34 remain)
+  69.3 30 |  s: SW'unknown':Mux#85: deleting (33 remain)
+  69.3 30 |  s: SW#15:10.47.251.124:80: deleting (32 remain)
+  69.3 30 |  s: SW'unknown':Mux#95: deleting (31 remain)
+  69.3 30 |  s: SW#10:10.47.251.124:80: deleting (30 remain)
+  69.3 30 |  s: SW'unknown':Mux#97: deleting (29 remain)
+  69.3 30 |  s: SW#14:10.47.251.124:80: deleting (28 remain)
+  69.3 30 |  s: SW'unknown':Mux#96: deleting (27 remain)
+  69.3 30 |  s: SW#13:10.47.251.124:80: deleting (26 remain)
+  69.3 30 |  s: SW'unknown':Mux#100: deleting (25 remain)
+  69.3 30 |  s: SW#25:10.47.251.124:80: deleting (24 remain)
+  69.3 30 |  s: SW'unknown':Mux#98: deleting (23 remain)
+  69.3 30 |  s: SW#21:10.47.251.124:80: deleting (22 remain)
+  69.4 30 |  s: SW'unknown':Mux#107: deleting (25 remain)
+  69.4 30 |  s: SW#17:10.47.251.124:80: deleting (24 remain)
+  84.7 30 | c : DNS request from ('2405:204:3210:6ee:4582:1f55:31fe:ba76', 41205, 0, 0) to None: 33 bytes
+  84.7 30 | c : DNS request from ('2405:204:3210:6ee:4582:1f55:31fe:ba76', 38195, 0, 0) to None: 33 bytes
+  84.9 8 | 2017-11-30T17:57:39+0000 [stdout#info] A query: b'play.google.com'
+  84.9 8 | 2017-11-30T17:57:39+0000 [stdout#info] AAAA query, sending back A instead: b'play.google.com'
+  84.9 8 | 2017-11-30T17:57:39+0000 [stdout#info] A query: b'play.google.com'
+  85.0 8 | 2017-11-30T17:57:39+0000 [stdout#info] Result for b'play.google.com' is ['74.125.24.113', '74.125.24.139', '74.125.24.100', '74.125.24.102', '74.125.24.138', '74.125.24.101']
+  85.0 8 | 2017-11-30T17:57:39+0000 [stdout#info] Result for b'play.google.com' is ['74.125.24.139', '74.125.24.100', '74.125.24.113', '74.125.24.102', '74.125.24.101', '74.125.24.138']
+  87.0 30 | c : DNS request from ('2405:204:3210:6ee:4582:1f55:31fe:ba76', 6787, 0, 0) to None: 33 bytes
+  87.0 30 | c : DNS request from ('2405:204:3210:6ee:4582:1f55:31fe:ba76', 41912, 0, 0) to None: 33 bytes
+  87.4 8 | 2017-11-30T17:57:41+0000 [stdout#info] A query: b'apis.google.com'
+  87.4 8 | 2017-11-30T17:57:41+0000 [stdout#info] AAAA query, sending back A instead: b'apis.google.com'
+  87.4 8 | 2017-11-30T17:57:41+0000 [stdout#info] A query: b'apis.google.com'
+  87.5 8 | 2017-11-30T17:57:41+0000 [stdout#info] Result for b'apis.google.com' is ['74.125.200.101', '74.125.200.100', '74.125.200.113', '74.125.200.139', '74.125.200.138', '74.125.200.102']
+  87.5 8 | 2017-11-30T17:57:41+0000 [stdout#info] Result for b'apis.google.com' is ['74.125.200.101', '74.125.200.102', '74.125.200.138', '74.125.200.139', '74.125.200.113', '74.125.200.100']
+  89.0 30 | c : DNS request from ('2405:204:3210:6ee:4582:1f55:31fe:ba76', 3688, 0, 0) to None: 43 bytes
+  89.0 30 | c : DNS request from ('2405:204:3210:6ee:4582:1f55:31fe:ba76', 14318, 0, 0) to None: 43 bytes
+  89.0 30 | c : DNS request from ('2405:204:3210:6ee:4582:1f55:31fe:ba76', 44911, 0, 0) to None: 43 bytes
+  89.0 30 | c : DNS request from ('2405:204:3210:6ee:4582:1f55:31fe:ba76', 4910, 0, 0) to None: 43 bytes
+  89.0 30 | c : DNS request from ('2405:204:3210:6ee:4582:1f55:31fe:ba76', 41156, 0, 0) to None: 43 bytes
+  89.0 30 | c : DNS request from ('2405:204:3210:6ee:4582:1f55:31fe:ba76', 28212, 0, 0) to None: 43 bytes
+  89.2 8 | 2017-11-30T17:57:43+0000 [stdout#info] A query: b'ci4.googleusercontent.com'
+  89.2 8 | 2017-11-30T17:57:43+0000 [stdout#info] AAAA query, sending back A instead: b'ci4.googleusercontent.com'
+  89.2 8 | 2017-11-30T17:57:43+0000 [stdout#info] A query: b'ci4.googleusercontent.com'
+  89.2 8 | 2017-11-30T17:57:43+0000 [stdout#info] A query: b'ci6.googleusercontent.com'
+  89.2 8 | 2017-11-30T17:57:43+0000 [stdout#info] AAAA query, sending back A instead: b'ci6.googleusercontent.com'
+  89.2 8 | 2017-11-30T17:57:43+0000 [stdout#info] A query: b'ci6.googleusercontent.com'
+  89.2 8 | 2017-11-30T17:57:43+0000 [stdout#info] A query: b'ci5.googleusercontent.com'
+  89.2 8 | 2017-11-30T17:57:43+0000 [stdout#info] AAAA query, sending back A instead: b'ci5.googleusercontent.com'
+  89.2 8 | 2017-11-30T17:57:43+0000 [stdout#info] A query: b'ci5.googleusercontent.com'
+  89.3 30 | c : DNS request from ('2405:204:3210:6ee:4582:1f55:31fe:ba76', 29850, 0, 0) to None: 37 bytes
+  89.3 8 | 2017-11-30T17:57:43+0000 [stdout#info] Result for b'ci4.googleusercontent.com' is ['74.125.68.132']
+  89.3 30 | c : DNS request from ('2405:204:3210:6ee:4582:1f55:31fe:ba76', 19799, 0, 0) to None: 37 bytes
+  89.3 30 | c : DNS request from ('2405:204:3210:6ee:4582:1f55:31fe:ba76', 60768, 0, 0) to None: 47 bytes
+  89.3 8 | 2017-11-30T17:57:43+0000 [stdout#info] Result for b'ci5.googleusercontent.com' is ['74.125.24.132']
+  89.3 8 | 2017-11-30T17:57:43+0000 [stdout#info] Result for b'ci6.googleusercontent.com' is ['172.217.24.65']
+  89.3 8 | 2017-11-30T17:57:43+0000 [stdout#info] Result for b'ci5.googleusercontent.com' is ['74.125.200.132']
+  89.3 30 | c : DNS request from ('2405:204:3210:6ee:4582:1f55:31fe:ba76', 40917, 0, 0) to None: 47 bytes
+  89.3 8 | 2017-11-30T17:57:43+0000 [stdout#info] Result for b'ci6.googleusercontent.com' is ['74.125.130.132']
+  89.3 30 | c : DNS request from ('2405:204:3210:6ee:4582:1f55:31fe:ba76', 61420, 0, 0) to None: 43 bytes
+  89.5 30 | c : DNS request from ('2405:204:3210:6ee:4582:1f55:31fe:ba76', 34720, 0, 0) to None: 43 bytes
+  89.5 8 | 2017-11-30T17:57:43+0000 [stdout#info] A query: b'clients6.google.com'
+  89.5 8 | 2017-11-30T17:57:43+0000 [stdout#info] Result for b'ci4.googleusercontent.com' is ['172.217.24.65']
+  89.5 8 | 2017-11-30T17:57:43+0000 [stdout#info] AAAA query, sending back A instead: b'clients6.google.com'
+  89.5 8 | 2017-11-30T17:57:43+0000 [stdout#info] A query: b'clients6.google.com'
+  89.5 8 | 2017-11-30T17:57:43+0000 [stdout#info] A query: b'people-pa.clients6.google.com'
+  89.5 8 | 2017-11-30T17:57:43+0000 [stdout#info] AAAA query, sending back A instead: b'people-pa.clients6.google.com'
+  89.5 8 | 2017-11-30T17:57:43+0000 [stdout#info] A query: b'people-pa.clients6.google.com'
+  89.5 8 | 2017-11-30T17:57:43+0000 [stdout#info] A query: b'ci3.googleusercontent.com'
+  89.6 8 | 2017-11-30T17:57:43+0000 [stdout#info] Result for b'clients6.google.com' is ['172.217.27.46']
+  89.6 8 | 2017-11-30T17:57:43+0000 [stdout#info] Result for b'clients6.google.com' is ['74.125.200.138', '74.125.200.113', '74.125.200.139', '74.125.200.101', '74.125.200.100', '74.125.200.102']
+  89.6 8 | 2017-11-30T17:57:43+0000 [stdout#info] Result for b'people-pa.clients6.google.com' is ['74.125.24.95']
+  89.6 8 | 2017-11-30T17:57:43+0000 [stdout#info] Result for b'ci3.googleusercontent.com' is ['74.125.68.132']
+  89.6 8 | 2017-11-30T17:57:43+0000 [stdout#info] AAAA query, sending back A instead: b'ci3.googleusercontent.com'
+  89.6 8 | 2017-11-30T17:57:43+0000 [stdout#info] A query: b'ci3.googleusercontent.com'
+  89.8 8 | 2017-11-30T17:57:43+0000 [stdout#info] Result for b'ci3.googleusercontent.com' is ['74.125.24.132']
+  90.1 8 | 2017-11-30T17:57:43+0000 [stdout#info] Result for b'people-pa.clients6.google.com' is ['74.125.24.95']
+ 103.7 30 | c : DNS request from ('2405:204:3210:6ee:4582:1f55:31fe:ba76', 3982, 0, 0) to None: 31 bytes
+ 103.7 30 | c : DNS request from ('2405:204:3210:6ee:4582:1f55:31fe:ba76', 11792, 0, 0) to None: 31 bytes
+ 104.6 30 | c : DNS request from ('192.168.43.218', 3727) to None: 31 bytes
+ 104.6 30 | c : DNS request from ('192.168.43.218', 7349) to None: 31 bytes
+ 104.9 8 | 2017-11-30T17:57:58+0000 [stdout#info] A query: b'visitors.live'
+ 104.9 8 | 2017-11-30T17:57:58+0000 [stdout#info] AAAA query, sending back A instead: b'visitors.live'
+ 104.9 8 | 2017-11-30T17:57:58+0000 [stdout#info] A query: b'visitors.live'
+ 105.0 8 | 2017-11-30T17:57:58+0000 [stdout#info] Result for b'visitors.live' is ['35.186.194.41']
+ 105.0 8 | 2017-11-30T17:57:58+0000 [stdout#info] Result for b'visitors.live' is ['35.186.194.41']
+ 106.2 8 | 2017-11-30T17:57:58+0000 [stdout#info] A query: b'visitors.live'
+ 106.2 8 | 2017-11-30T17:57:59+0000 [stdout#info] Result for b'visitors.live' is ['35.186.194.41']
+ 106.2 8 | 2017-11-30T17:57:59+0000 [stdout#info] AAAA query, sending back A instead: b'visitors.live'
+ 106.3 8 | 2017-11-30T17:57:59+0000 [stdout#info] A query: b'visitors.live'
+ 106.3 8 | 2017-11-30T17:57:59+0000 [stdout#info] Result for b'visitors.live' is ['35.186.194.41']
+ 142.9 30 | c : DNS request from ('2405:204:3210:6ee:4582:1f55:31fe:ba76', 59519, 0, 0) to None: 34 bytes
+ 142.9 30 | c : DNS request from ('2405:204:3210:6ee:4582:1f55:31fe:ba76', 60051, 0, 0) to None: 34 bytes
+ 143.7 8 | 2017-11-30T17:58:37+0000 [stdout#info] AAAA query, sending back A instead: b'gs-loc.apple.com'
+ 143.7 8 | 2017-11-30T17:58:37+0000 [stdout#info] A query: b'gs-loc.apple.com'
+ 143.7 8 | 2017-11-30T17:58:37+0000 [stdout#info] A query: b'gs-loc.apple.com'
+ 143.9 30 | c : DNS request from ('2405:204:3210:6ee:4582:1f55:31fe:ba76', 59519, 0, 0) to None: 34 bytes
+ 143.9 30 | c : DNS request from ('2405:204:3210:6ee:4582:1f55:31fe:ba76', 60051, 0, 0) to None: 34 bytes
+ 143.9 8 | 2017-11-30T17:58:37+0000 [stdout#info] Result for b'gs-loc.apple.com' is ['17.134.127.250', '17.134.127.249']
+ 143.9 8 | 2017-11-30T17:58:37+0000 [stdout#info] Result for b'gs-loc.apple.com' is ['17.134.127.249', '17.134.127.250']
+ 144.4 8 | 2017-11-30T17:58:38+0000 [stdout#info] AAAA query, sending back A instead: b'gs-loc.apple.com'
+ 144.4 8 | 2017-11-30T17:58:38+0000 [stdout#info] A query: b'gs-loc.apple.com'
+ 144.4 8 | 2017-11-30T17:58:38+0000 [stdout#info] A query: b'gs-loc.apple.com'
+ 144.4 8 | 2017-11-30T17:58:38+0000 [stdout#info] Result for b'gs-loc.apple.com' is ['17.142.171.11', '17.142.171.10']
+ 144.4 8 | 2017-11-30T17:58:38+0000 [stdout#info] Result for b'gs-loc.apple.com' is ['17.134.127.250', '17.134.127.249']
+ 235.5 30 | c : DNS request from ('2405:204:3210:6ee:4582:1f55:31fe:ba76', 53824, 0, 0) to None: 61 bytes
+ 235.5 30 | c : DNS request from ('2405:204:3210:6ee:4582:1f55:31fe:ba76', 63217, 0, 0) to None: 61 bytes
+ 235.7 8 | 2017-11-30T18:00:09+0000 [stdout#info] A query: b'asimov.vortex.data.microsoft.com.akadns.net'
+ 235.7 8 | 2017-11-30T18:00:09+0000 [stdout#info] AAAA query, sending back A instead: b'asimov.vortex.data.microsoft.com.akadns.net'
+ 235.7 8 | 2017-11-30T18:00:09+0000 [stdout#info] A query: b'asimov.vortex.data.microsoft.com.akadns.net'
+ 235.7 8 | 2017-11-30T18:00:09+0000 [stdout#info] Result for b'asimov.vortex.data.microsoft.com.akadns.net' is ['111.221.29.254']
+ 235.7 8 | 2017-11-30T18:00:09+0000 [stdout#info] Result for b'asimov.vortex.data.microsoft.com.akadns.net' is ['111.221.29.254']
+ 278.5 30 | c : DNS request from ('2405:204:3210:6ee:4582:1f55:31fe:ba76', 51027, 0, 0) to None: 43 bytes
+ 278.5 30 | c : DNS request from ('2405:204:3210:6ee:4582:1f55:31fe:ba76', 62761, 0, 0) to None: 43 bytes
+ 278.7 8 | 2017-11-30T18:00:52+0000 [stdout#info] AAAA query, sending back A instead: b'init-p01st.push.apple.com'
+ 278.7 8 | 2017-11-30T18:00:52+0000 [stdout#info] A query: b'init-p01st.push.apple.com'
+ 278.7 8 | 2017-11-30T18:00:52+0000 [stdout#info] A query: b'init-p01st.push.apple.com'
+ 278.8 8 | 2017-11-30T18:00:53+0000 [stdout#info] Result for b'init-p01st.push.apple.com' is ['96.17.72.57', '96.17.72.32']
+ 278.8 8 | 2017-11-30T18:00:53+0000 [stdout#info] Result for b'init-p01st.push.apple.com' is ['96.17.72.57', '96.17.72.32']
+ 279.2 30 | c : DNS request from ('2405:204:3210:6ee:4582:1f55:31fe:ba76', 62033, 0, 0) to None: 34 bytes
+ 279.2 30 | c : DNS request from ('2405:204:3210:6ee:4582:1f55:31fe:ba76', 58091, 0, 0) to None: 34 bytes
+ 279.3 8 | 2017-11-30T18:00:53+0000 [stdout#info] AAAA query, sending back A instead: b'ocsp.entrust.net'
+ 279.3 8 | 2017-11-30T18:00:53+0000 [stdout#info] A query: b'ocsp.entrust.net'
+ 279.3 8 | 2017-11-30T18:00:53+0000 [stdout#info] A query: b'ocsp.entrust.net'
+ 280.1 8 | 2017-11-30T18:00:53+0000 [stdout#info] Result for b'ocsp.entrust.net' is ['23.15.104.180']
+ 280.1 8 | 2017-11-30T18:00:53+0000 [stdout#info] Result for b'ocsp.entrust.net' is ['23.15.104.180']
+ 280.4 30 | c : DNS request from ('2405:204:3210:6ee:4582:1f55:31fe:ba76', 56821, 0, 0) to None: 43 bytes
+ 280.4 30 | c : DNS request from ('2405:204:3210:6ee:4582:1f55:31fe:ba76', 58602, 0, 0) to None: 43 bytes
+ 280.5 8 | 2017-11-30T18:00:54+0000 [stdout#info] AAAA query, sending back A instead: b'48-courier.push.apple.com'
+ 280.5 8 | 2017-11-30T18:00:54+0000 [stdout#info] A query: b'48-courier.push.apple.com'
+ 280.5 8 | 2017-11-30T18:00:54+0000 [stdout#info] A query: b'48-courier.push.apple.com'
+ 280.7 8 | 2017-11-30T18:00:54+0000 [stdout#info] Result for b'48-courier.push.apple.com' is ['17.252.140.41', '17.252.141.37', '17.252.140.81', '17.252.140.223', '17.252.140.95', '17.252.141.38', '17.252.141.21', '17.252.140.157']
+ 281.0 8 | 2017-11-30T18:00:55+0000 [stdout#info] Result for b'48-courier.push.apple.com' is ['17.252.140.157', '17.252.141.21', '17.252.141.38', '17.252.140.95', '17.252.140.223', '17.252.140.81', '17.252.141.37', '17.252.140.41']
+1200.2 30 | c : DNS request from ('2405:204:3210:6ee:4582:1f55:31fe:ba76', 49465, 0, 0) to None: 45 bytes
+1200.7 30 | c : DNS request from ('2405:204:3210:6ee:4582:1f55:31fe:ba76', 59924, 0, 0) to None: 59 bytes
+1200.9 30 | c : DNS request from ('2405:204:3210:6ee:4582:1f55:31fe:ba76', 55462, 0, 0) to None: 34 bytes
+1200.9 30 | c : DNS request from ('2405:204:3210:6ee:4582:1f55:31fe:ba76', 57496, 0, 0) to None: 34 bytes
+1201.1 30 | c : DNS request from ('2405:204:3210:6ee:4582:1f55:31fe:ba76', 57547, 0, 0) to None: 43 bytes
+1201.1 30 | c : DNS request from ('2405:204:3210:6ee:4582:1f55:31fe:ba76', 58202, 0, 0) to None: 43 bytes
+1201.2 30 | c : SW#13:192.168.43.218:55748: deleting (25 remain)
+1201.2 30 | c : SW'unknown':Mux#104: deleting (24 remain)
+1201.2 30 | c : SW#25:192.168.43.218:55743: deleting (23 remain)
+1201.2 30 | c : SW'unknown':Mux#99: deleting (22 remain)
+1201.2 30 | c : SW#20:192.168.43.218:55752: deleting (21 remain)
+1201.2 30 | c : SW'unknown':Mux#108: deleting (20 remain)
+1201.2 30 | c : SW#21:192.168.43.218:55753: deleting (19 remain)
+1201.2 30 | c : SW'unknown':Mux#109: deleting (18 remain)
+1201.2 30 | c : SW#22:192.168.43.218:55754: deleting (17 remain)
+1201.2 30 | c : SW'unknown':Mux#110: deleting (16 remain)
+1201.2 30 | c : SW#23:192.168.43.218:55755: deleting (15 remain)
+1201.2 30 | c : SW'unknown':Mux#111: deleting (14 remain)
+1201.2 30 | c : SW#24:192.168.43.218:55756: deleting (13 remain)
+1201.2 30 | c : SW'unknown':Mux#112: deleting (12 remain)
+1201.2 30 | c : SW#18:192.168.43.218:55757: deleting (11 remain)
+1201.2 30 | c : SW'unknown':Mux#113: deleting (10 remain)
+1201.2 30 | c : SW'unknown':Mux#7: deleting (9 remain)
+1201.2 30 | c : SW#10:192.168.43.218:55650: deleting (8 remain)
+1201.2 30 | c : DNS request from ('2405:204:3210:6ee:4582:1f55:31fe:ba76', 49465, 0, 0) to None: 45 bytes
+1201.7 30 | c : DNS request from ('2405:204:3210:6ee:4582:1f55:31fe:ba76', 38199, 0, 0) to None: 37 bytes
+1201.7 30 | c : DNS request from ('2405:204:3210:6ee:4582:1f55:31fe:ba76', 44257, 0, 0) to None: 37 bytes
+1201.9 30 | c : DNS request from ('2405:204:3210:6ee:4582:1f55:31fe:ba76', 55462, 0, 0) to None: 34 bytes
+1201.9 30 | c : DNS request from ('2405:204:3210:6ee:4582:1f55:31fe:ba76', 57496, 0, 0) to None: 34 bytes
+1202.1 30 | c : DNS request from ('2405:204:3210:6ee:4582:1f55:31fe:ba76', 57547, 0, 0) to None: 43 bytes
+1202.1 30 | c : DNS request from ('2405:204:3210:6ee:4582:1f55:31fe:ba76', 58202, 0, 0) to None: 43 bytes
+1202.7 30 | c : DNS request from ('192.168.43.218', 59924) to None: 59 bytes
+1202.7 30 | c : DNS request from ('192.168.43.218', 21044) to None: 37 bytes
+1202.7 30 | c : DNS request from ('192.168.43.218', 38053) to None: 37 bytes
+1203.2 30 | c : DNS request from ('192.168.43.218', 49465) to None: 45 bytes
+1203.7 30 | c : DNS request from ('192.168.43.218', 59924) to None: 59 bytes
+1203.8 30 | c : DNS request from ('2405:204:3210:6ee:4582:1f55:31fe:ba76', 30026, 0, 0) to None: 37 bytes
+1203.8 30 | c : DNS request from ('2405:204:3210:6ee:4582:1f55:31fe:ba76', 11978, 0, 0) to None: 37 bytes
+1203.9 30 | c : DNS request from ('192.168.43.218', 55462) to None: 34 bytes
+1203.9 30 | c : DNS request from ('192.168.43.218', 57496) to None: 34 bytes
+1204.1 30 | c : DNS request from ('192.168.43.218', 57547) to None: 43 bytes
+1204.1 30 | c : DNS request from ('192.168.43.218', 58202) to None: 43 bytes
+1204.2 30 | c : DNS request from ('192.168.43.218', 49465) to None: 45 bytes
+1204.9 30 | c : DNS request from ('192.168.43.218', 55462) to None: 34 bytes
+1204.9 30 | c : DNS request from ('192.168.43.218', 57496) to None: 34 bytes
+1205.1 30 | c : DNS request from ('192.168.43.218', 57547) to None: 43 bytes
+1205.1 30 | c : DNS request from ('192.168.43.218', 58202) to None: 43 bytes
+1205.7 30 | c : DNS request from ('192.168.43.218', 59924) to None: 59 bytes
+1205.8 30 | c : DNS request from ('192.168.43.218', 39300) to None: 37 bytes
+1205.8 30 | c : DNS request from ('192.168.43.218', 47953) to None: 37 bytes
+1206.3 30 | c : DNS request from ('192.168.43.218', 49465) to None: 45 bytes
+1206.9 30 | c : DNS request from ('2405:204:3210:6ee:4582:1f55:31fe:ba76', 55462, 0, 0) to None: 34 bytes
+1206.9 30 | c : DNS request from ('2405:204:3210:6ee:4582:1f55:31fe:ba76', 57496, 0, 0) to None: 34 bytes
+1207.1 30 | c : DNS request from ('2405:204:3210:6ee:4582:1f55:31fe:ba76', 57547, 0, 0) to None: 43 bytes
+1207.1 30 | c : DNS request from ('2405:204:3210:6ee:4582:1f55:31fe:ba76', 58202, 0, 0) to None: 43 bytes
+1207.8 30 | c : DNS request from ('2405:204:3210:6ee:4582:1f55:31fe:ba76', 65508, 0, 0) to None: 37 bytes
+1207.8 30 | c : DNS request from ('2405:204:3210:6ee:4582:1f55:31fe:ba76', 56145, 0, 0) to None: 37 bytes
+1208.8 30 | c : DNS request from ('2405:204:3210:6ee:4582:1f55:31fe:ba76', 65508, 0, 0) to None: 37 bytes
+1208.8 30 | c : DNS request from ('2405:204:3210:6ee:4582:1f55:31fe:ba76', 56145, 0, 0) to None: 37 bytes
+1209.3 30 | c : DNS request from ('2405:204:3210:6ee:4582:1f55:31fe:ba76', 61137, 0, 0) to None: 34 bytes
+1209.3 30 | c : DNS request from ('2405:204:3210:6ee:4582:1f55:31fe:ba76', 50627, 0, 0) to None: 34 bytes
+1209.7 30 | c : DNS request from ('192.168.43.218', 59924) to None: 59 bytes
+1209.9 30 | Connection to localhost closed by remote host.
+1209.9 30 | >> pfctl -a sshuttle6-12300 -F all
+1209.9 TL | A subprocess (['ssh', '-N', '-oServerAliveInterval=1', '-oServerAliveCountMax=10', '-F', '/dev/null', '-q', '-oStrictHostKeyChecking=no', '-oUserKnownHostsFile=/dev/null', '-p', '55586', 'telepresence@localhost', '-R', '*:8080:127.0.0.1:8080']) died with code 255, killed all processes...
+1209.9 TL | Shutting down local process...
+1209.9 TL | Killing local process...
+1209.9 30 | >> pfctl -X 16347085970009033995
+1209.9 30 | >> pfctl -a sshuttle-12300 -F all
+1209.9 30 | >> pfctl -X 16347085970009037547
+1210.9 TL | [49] Capturing: (['umount', '-f', '/tmp/tmps8ha2w7t'],)...
+umount: /tmp/tmps8ha2w7t: not currently mounted

@@ -1,0 +1,17 @@
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: kafka
+
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: mean
+
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: streams
